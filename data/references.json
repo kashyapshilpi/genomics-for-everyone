@@ -98,5 +98,73 @@
   "easFH": {
     "n": "European Atherosclerosis Society consensus: familial hypercholesterolaemia is underdiagnosed and undertreated (Nordestgaard et al., Eur Heart J 2013)",
     "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Nordestgaard+2013+familial+hypercholesterolaemia+consensus+European+Heart+Journal"
+  },
+  "acogCma": {
+    "n": "ACOG Committee Opinion No. 682: Microarrays and next-generation sequencing technology in prenatal diagnosis (2016)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=ACOG+Committee+Opinion+682+microarrays+next-generation+sequencing+prenatal+diagnosis"
+  },
+  "ispdEs": {
+    "n": "ISPD 2022 position statement: use of genome-wide sequencing for prenatal diagnosis (Van den Veyver et al., Prenat Diagn 2022)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Van+den+Veyver+2022+ISPD+position+statement+genome-wide+sequencing+prenatal+diagnosis"
+  },
+  "smfmSoft": {
+    "n": "SMFM Consult Series #57: Evaluation and management of isolated soft ultrasound markers for aneuploidy (2021)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=SMFM+Consult+Series+57+isolated+soft+ultrasound+markers+aneuploidy"
+  },
+  "tif": {
+    "n": "TIF Guidelines for the management of transfusion dependent thalassaemia, 4th edition (Cappellini et al., 2021)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Cappellini+2021+TIF+guidelines+transfusion+dependent+thalassaemia"
+  },
+  "grSma": {
+    "n": "GeneReviews: Spinal muscular atrophy",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=GeneReviews+spinal+muscular+atrophy"
+  },
+  "grDmd": {
+    "n": "GeneReviews: Dystrophinopathies",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=GeneReviews+dystrophinopathies"
+  },
+  "grAlphaThal": {
+    "n": "GeneReviews: Alpha-thalassemia",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=GeneReviews+alpha-thalassemia"
+  },
+  "rnaSeq": {
+    "n": "RNA sequencing improves diagnosis in unsolved rare muscle disease (Cummings et al., Sci Transl Med 2017)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Cummings+2017+improving+genetic+diagnosis+Mendelian+disease+transcriptome+sequencing"
+  },
+  "pkuAcmg": {
+    "n": "ACMG practice guideline: phenylalanine hydroxylase deficiency diagnosis and management (Vockley et al., Genet Med 2014)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Vockley+2014+phenylalanine+hydroxylase+deficiency+diagnosis+management+guideline"
+  },
+  "galactosemia": {
+    "n": "International clinical guideline for the management of classical galactosemia (Welling et al., J Inherit Metab Dis 2017)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Welling+2017+international+clinical+guideline+classical+galactosemia"
+  },
+  "adaSoc": {
+    "n": "American Diabetes Association: Standards of Care in Diabetes, section 2 – Diagnosis and classification (updated yearly)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Standards+of+Care+in+Diabetes+Diagnosis+and+Classification+of+Diabetes+American+Diabetes+Association"
+  },
+  "npncd": {
+    "n": "National Programme for Prevention and Control of Non-Communicable Diseases (NP-NCD), Ministry of Health, India",
+    "u": "https://nhm.gov.in/"
+  },
+  "laiLipid": {
+    "n": "Lipid Association of India expert consensus on management of dyslipidaemia (Puri et al.)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Lipid+Association+of+India+expert+consensus+statement+dyslipidemia+Puri"
+  },
+  "whoFerritin": {
+    "n": "WHO guideline on use of ferritin concentrations to assess iron status in individuals and populations (2020)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=WHO+guideline+use+of+ferritin+concentrations+to+assess+iron+status+2020"
+  },
+  "niceB12": {
+    "n": "NICE guideline NG239: Vitamin B12 deficiency in over 16s (2024)",
+    "u": "https://www.nice.org.uk/guidance/ng239"
+  },
+  "tmsNbs": {
+    "n": "Inborn errors of metabolism: biochemical investigations (GeneReviews and metabolic literature)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=inborn+errors+of+metabolism+first-line+biochemical+investigations+tandem+mass+spectrometry+urine+organic+acids+review"
+  },
+  "mohfwGdm": {
+    "n": "MoHFW, Government of India: Diagnosis and management of gestational diabetes mellitus – technical and operational guidelines (2018)",
+    "u": "https://nhm.gov.in/"
   }
 }

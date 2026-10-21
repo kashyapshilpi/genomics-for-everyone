@@ -114,10 +114,10 @@ p{margin:0} a{color:var(--sky)}
 .list{display:grid;border-radius:20px;overflow:hidden;border:1px solid var(--line)}
 .rowi{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:2px 12px;align-items:center;padding:12px 14px;background:var(--bg);border-bottom:1px solid var(--line);width:100%}
 .rowi:last-child{border-bottom:0}
-.rowi .ic{grid-row:span 2;width:40px;height:40px;border-radius:12px;background:var(--cs);color:var(--c);display:grid;place-items:center}
-.rowi b{font-size:.95rem}
-.rowi span{font-size:.78rem;color:var(--muted);grid-column:2}
-.rowi .chev{grid-row:span 2;color:var(--muted)}
+.rowi .ic{grid-column:1;grid-row:1 / span 2;width:40px;height:40px;border-radius:12px;background:var(--cs);color:var(--c);display:grid;place-items:center}
+.rowi b{font-size:.95rem;grid-column:2;grid-row:1}
+.rowi span{font-size:.78rem;color:var(--muted);grid-column:2;grid-row:2}
+.rowi .chev{grid-column:3;grid-row:1 / span 2;color:var(--muted)}
 .note{font-size:.8rem;color:var(--muted);background:var(--surface);border-radius:14px;padding:12px}
 
 /* chat */

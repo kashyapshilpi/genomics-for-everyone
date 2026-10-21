@@ -27,11 +27,22 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | Hereditary cancer panel (`hcp`) | Adult | nccn, gr | Not reviewed | | |
 | Inherited heart condition testing (`fh`) | Adult | gr, clingen | Not reviewed | | |
 | Pharmacogenomic test (`pgx`) | Medicines | cpic, pharmgkb | Not reviewed | | |
-| Polygenic risk score (`prs`) | Personalized | pgs | Not reviewed | | |
 | Celiac disease blood test (`celiac`) | Food | acgCeliac, celiacIndia | Not reviewed | | |
 | Milk (lactose) intolerance check (`lactose`) | Food | lactase | Not reviewed | | |
 | G6PD test (`g6pd`) | Food | cpicG6pd, gr | Not reviewed | | |
 | Nutrigenomics ("DNA diet") test (`nutri`) | Personalized | food4me, acmgMthfr | Not reviewed | | |
+| Deletion / duplication test (MLPA) (`mlpa`) | Targeted | grSma, grDmd, grAlphaThal | Not reviewed | | |
+| Prenatal exome sequencing (`pes`) | Pregnancy | ispdEs, acogCma | Not reviewed | | |
+| RNA sequencing (`rnaseq`) | Sequencing | rnaSeq | Not reviewed | | |
+| Blood sugar (fasting glucose / HbA1c) (`glucose`) | Blood tests | adaSoc, npncd, mohfwGdm | Not reviewed | | |
+| Fasting insulin / HOMA-IR (`insulin`) | Blood tests | adaSoc | Not reviewed | | |
+| Lipid profile (`lipid`) | Blood tests | laiLipid, easFH | Not reviewed | | |
+| Iron studies (ferritin) (`ferritin`) | Blood tests | whoFerritin | Not reviewed | | |
+| Vitamin B12 (and folate) (`b12`) | Blood tests | niceB12 | Not reviewed | | |
+| Thyroid test (TSH) (`tsh`) | Blood tests | nhm | Not reviewed | | |
+| Creatine kinase (CK) (`ck`) | Blood tests | grDmd | Not reviewed | | |
+| Metabolic screening (`metab`) | Blood tests | tmsNbs, gr | Not reviewed | | |
+| Rapid chromosome test (QF-PCR / FISH) (`rapid`) | Pregnancy | acogCma, gr | Not reviewed | | |
 | Genetic counselling (`gc`) | Services | nsgc | Not reviewed | | |
 
 ## Recommendation logic (`recommend()` in `js/app.js`)
@@ -46,9 +57,13 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | Adult: hereditary cancer | Not reviewed | | |
 | Adult: high LDL / familial hypercholesterolaemia | Not reviewed | | |
 | Adult: medicines (pharmacogenomics) | Not reviewed | | |
-| Polygenic risk scores (always "not routine") | Not reviewed | | |
 | Known family variant | Not reviewed | | |
-| Age: pregnancy at 35+ (NIPT/screening), woman 35+ planning pregnancy, teenagers and adult-onset testing, PRS at 60+ | Not reviewed | | |
+| Age: pregnancy at 35+ (NIPT/screening), woman 35+ planning pregnancy, teenagers and adult-onset testing | Not reviewed | | |
+| Results already in hand, pregnancy: high marker/NIPT → diagnostic test; NIPT no-call → counselling ± diagnostic; structural anomaly or thick NT (even with low-risk NIPT) → CVS/amnio with microarray, then prenatal exome if microarray normal; isolated soft marker → usually no invasive test; growth restriction; abnormal or VUS result → counselling / parental testing | Not reviewed | | |
+| Results already in hand, carrier: borderline HbA2 → HBB DNA test; trait → partner HPLC; low MCV with normal HbA2 → ferritin then α-globin deletion test | Not reviewed | | |
+| Results already in hand, child: weakness → MLPA (SMN1, DMD) first; microarray VUS/abnormal → counselling, parents; exome negative → genome, then RNA in specialist centres; exome VUS/positive | Not reviewed | | |
+| MLPA for DMD carrier testing (female relatives) and SMA carrier testing (related partners, unexplained infant death) | Not reviewed | | |
+| Routine blood tests: glucose for adults 30+ and every pregnancy (GDM), HbA1c caveat with Hb variants, fasting insulin "not routine", lipid profile, ferritin/B12 for anaemia and low MCV/borderline HbA2, ferritin in thalassemia major, CK first for weakness, metabolic screen, TSH for growth/delay, rapid QF-PCR/FISH alongside CVS/amnio | Not reviewed | | |
 | Food & diet: wheat → celiac, milk → lactose (and cow's milk allergy in under-5s), fava beans → G6PD, anaemia not responding to iron → HPLC + celiac, DNA diet tests | Not reviewed | | |
 
 ## Couple check (`data/genes.json` and Punnett-square logic)
@@ -72,6 +87,12 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | Avoid fava beans until G6PD is checked | Fava bean / medicine reaction | cpicG6pd | Not reviewed | | |
 | Food helps cholesterol, but may not be enough | LDL ≥190 or very high cholesterol in family | icmrNin, easFH | Not reviewed | | |
 | Skip the DNA diet test | Considering a DNA diet test | food4me | Not reviewed | | |
+| PKU: the diet is the treatment | Confirmed PKU | pkuAcmg | Not reviewed | | |
+| Galactosemia: no milk sugar | Confirmed galactosemia | galactosemia | Not reviewed | | |
+| Celiac disease: strict gluten-free | Confirmed celiac disease | acgCeliac | Not reviewed | | |
+| FH: diet plus medicine | Confirmed familial hypercholesterolaemia | easFH, icmrNin | Not reviewed | | |
+| G6PD deficiency: avoid fava beans | Confirmed G6PD deficiency | cpicG6pd | Not reviewed | | |
+| Thalassemia major: no extra iron | Confirmed thalassemia major | tif | Not reviewed | | |
 
 ## Known gaps
 - Guideline links in `references.json` are PubMed searches, not exact DOIs. They should be replaced with the exact papers.

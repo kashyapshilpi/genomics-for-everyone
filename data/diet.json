@@ -1,14 +1,5 @@
 [
   {
-    "id": "general",
-    "when": "always",
-    "title": "Eat a balanced Indian thali",
-    "text": "None of these food tips replace a doctor or dietitian. For everyday eating, ICMR-NIN's guidelines suggest a varied plate: cereals and millets, dal or other protein, plenty of vegetables and fruit, some milk or curd, and less sugar, salt and fried food.",
-    "refs": [
-      "icmrNin"
-    ]
-  },
-  {
     "id": "folic",
     "when": "womanPlanningPregnancy",
     "title": "Folic acid before and in early pregnancy",
@@ -71,6 +62,70 @@
     "text": "Personal diet advice works as well when it is based on what you eat and your blood tests as when it is based on your genes. A dietitian and a routine blood test are a better use of money.",
     "refs": [
       "food4me"
+    ]
+  },
+  {
+    "id": "pkuDiet",
+    "when": "dxPku",
+    "title": "PKU: the diet is the treatment",
+    "text": "PKU is treated with a lifelong low-phenylalanine diet and a special medical formula, managed by a metabolic team. Women with PKU need strict control before and during pregnancy to protect the baby.",
+    "refs": [
+      "pkuAcmg"
+    ]
+  },
+  {
+    "id": "galDiet",
+    "when": "dxGalactosemia",
+    "title": "Galactosemia: no milk sugar",
+    "text": "Classic galactosemia is managed by avoiding milk and other foods containing lactose and galactose, with a metabolic dietitian. Calcium and vitamin D then need attention.",
+    "refs": [
+      "galactosemia"
+    ]
+  },
+  {
+    "id": "celiacDxDiet",
+    "when": "dxCeliac",
+    "title": "Celiac disease: strict gluten-free, for life",
+    "text": "Avoid wheat, barley and rye completely, including hidden sources such as some spice mixes and packaged foods. A dietitian helps you plan meals around rice, millets, dal and besan.",
+    "refs": [
+      "acgCeliac"
+    ]
+  },
+  {
+    "id": "fhDxDiet",
+    "when": "dxFh",
+    "title": "Familial hypercholesterolaemia: diet plus medicine",
+    "text": "A low saturated-fat, high-fibre diet is part of treatment, but FH almost always needs cholesterol-lowering medicines too. Close relatives should get their cholesterol checked.",
+    "refs": [
+      "easFH",
+      "icmrNin"
+    ]
+  },
+  {
+    "id": "g6pdDxDiet",
+    "when": "dxG6pd",
+    "title": "G6PD deficiency: avoid fava beans",
+    "text": "Avoid fava (broad) beans and check with a doctor or pharmacist before any new medicine. Most other foods are fine.",
+    "refs": [
+      "cpicG6pd"
+    ]
+  },
+  {
+    "id": "thalMajorDiet",
+    "when": "dxThalMajor",
+    "title": "Thalassemia major: no extra iron",
+    "text": "Regular transfusions already load the body with iron. Don't take iron tablets or iron tonics unless your thalassemia doctor says so, and follow your chelation plan.",
+    "refs": [
+      "tif"
+    ]
+  },
+  {
+    "id": "general",
+    "when": "always",
+    "title": "Eat a balanced Indian thali",
+    "text": "None of these food tips replace a doctor or dietitian. For everyday eating, ICMR-NIN's guidelines suggest a varied plate: cereals and millets, dal or other protein, plenty of vegetables and fruit, some milk or curd, and less sugar, salt and fried food.",
+    "refs": [
+      "icmrNin"
     ]
   }
 ]

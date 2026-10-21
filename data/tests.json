@@ -392,6 +392,60 @@
     ]
   },
   {
+    "id": "mlpa",
+    "name": "Deletion / duplication test (MLPA)",
+    "full": "Counts copies of specific genes or exons, e.g. SMN1, DMD, α-globin",
+    "cat": "Targeted",
+    "type": "Diagnostic / carrier",
+    "purpose": "Finds missing or extra pieces of a gene that sequencing can miss.",
+    "who": "Suspected SMA or Duchenne/Becker, SMA carrier testing, female relatives in DMD families, suspected α-thalassemia trait.",
+    "detects": "SMN1 copy number (SMA), DMD exon deletions and duplications, common α-globin deletions.",
+    "limits": "Only checks the genes in the kit. Small changes inside a gene need sequencing. Some SMA carriers ('2+0') look normal on copy counting.",
+    "gc": "Yes.",
+    "india": "Widely available in genetics labs; α-globin deletions are also often tested by gap-PCR.",
+    "ask": "Is a deletion test like MLPA the right first test, before a bigger panel or exome?",
+    "refs": [
+      "grSma",
+      "grDmd",
+      "grAlphaThal"
+    ]
+  },
+  {
+    "id": "pes",
+    "name": "Prenatal exome sequencing",
+    "full": "Exome sequencing on a CVS or amniotic fluid sample, ideally with both parents",
+    "cat": "Pregnancy",
+    "type": "Diagnostic",
+    "purpose": "Looks for a single-gene cause when the baby has structural problems on scan.",
+    "who": "Pregnancies with significant scan anomalies when karyotype or microarray is normal.",
+    "detects": "Single-gene changes linked to the anomalies seen.",
+    "limits": "Results take weeks, which matters for decisions. Can find uncertain results. Only offered with fetal medicine and genetics input.",
+    "gc": "Yes, before and after.",
+    "india": "Available in a growing number of centres; ask about turnaround time.",
+    "ask": "With a normal microarray, would prenatal exome help explain the scan findings, and how long would results take?",
+    "refs": [
+      "ispdEs",
+      "acogCma"
+    ]
+  },
+  {
+    "id": "rnaseq",
+    "name": "RNA sequencing",
+    "full": "Reads which genes are switched on, and how, in blood or tissue",
+    "cat": "Sequencing",
+    "type": "Research / specialist",
+    "purpose": "Helps explain unsolved cases, for example by showing that a DNA change disrupts splicing.",
+    "who": "Selected people whose exome or genome found nothing or an uncertain result.",
+    "detects": "Abnormal splicing and gene expression.",
+    "limits": "Mostly research or specialist centres. Not a first-line test. The right tissue matters.",
+    "gc": "Yes.",
+    "india": "Limited availability; usually through research collaborations.",
+    "ask": "After a negative exome, is RNA testing or reanalysis an option for us?",
+    "refs": [
+      "rnaSeq"
+    ]
+  },
+  {
     "id": "gc",
     "name": "Genetic counselling",
     "full": "Consultation with a genetic counsellor or clinical geneticist",

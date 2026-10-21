@@ -227,6 +227,22 @@
       }
     },
     {
+      "id": "hbResult",
+      "sec": "repro",
+      "when": "hadHbTest",
+      "text": "What did your hemoglobin (HPLC) report say?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "normal": "Normal",
+        "trait": "β-thalassemia trait (HbA2 raised)",
+        "hbs": "Sickle cell trait (HbS)",
+        "hbe": "HbE trait",
+        "borderline": "Borderline HbA2",
+        "lowMcv": "Small red cells (low MCV) but normal HbA2"
+      }
+    },
+    {
       "id": "prevAffected",
       "sec": "repro",
       "when": "isRepro",
@@ -259,6 +275,76 @@
         "normal": "All normal",
         "high": "High-chance screening result",
         "scan": "Something seen on a scan"
+      }
+    },
+    {
+      "id": "pregTests",
+      "sec": "preg",
+      "when": "pregnantWithResults",
+      "text": "Which of these have you already had?",
+      "sub": "Pick all that apply. You'll be asked about each result.",
+      "type": "multi",
+      "none": "None of these",
+      "opts": {
+        "dm": "Double / triple / quadruple marker",
+        "nipt": "NIPT",
+        "scan": "NT scan or anomaly scan",
+        "invasive": "CVS or amniocentesis"
+      }
+    },
+    {
+      "id": "dmResult",
+      "sec": "preg",
+      "when": "hadMarker",
+      "text": "What did the marker test say?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "low": "Low chance",
+        "high": "High chance"
+      }
+    },
+    {
+      "id": "niptResult",
+      "sec": "preg",
+      "when": "hadNipt",
+      "text": "What did NIPT say?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "low": "Low risk / negative",
+        "high": "High risk / positive",
+        "nocall": "No result (failed or 'no call')"
+      }
+    },
+    {
+      "id": "scanResult",
+      "sec": "preg",
+      "when": "hadScan",
+      "text": "What did the scan show?",
+      "sub": "Pick the closest one.",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "normal": "Normal",
+        "soft": "Only a 'soft marker' (e.g. echogenic focus, mildly wide kidney)",
+        "nt": "Thick NT (nuchal translucency)",
+        "structural": "A structural problem (heart, brain, kidney, limbs, face…)",
+        "growth": "Baby is much smaller than expected"
+      }
+    },
+    {
+      "id": "invasiveResult",
+      "sec": "preg",
+      "when": "hadInvasive",
+      "text": "What did the CVS or amniocentesis test show?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "normal": "Karyotype / microarray normal",
+        "abnormal": "A chromosome or gene change was found",
+        "vus": "An uncertain result (VUS)",
+        "pending": "Still waiting"
       }
     },
     {
@@ -356,6 +442,32 @@
       }
     },
     {
+      "id": "cmaResult",
+      "sec": "child",
+      "when": "childHadCma",
+      "text": "What did the microarray show?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "normal": "Normal",
+        "abnormal": "A deletion or duplication that explains it",
+        "vus": "An uncertain result (VUS)"
+      }
+    },
+    {
+      "id": "exomeResult",
+      "sec": "child",
+      "when": "childHadExome",
+      "text": "What did the exome show?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "negative": "Nothing found",
+        "vus": "An uncertain result (VUS)",
+        "positive": "A diagnosis was found"
+      }
+    },
+    {
       "id": "cancer",
       "sec": "adult",
       "when": "isAdult",
@@ -446,6 +558,22 @@
       "when": "isAdult",
       "text": "Are you thinking about a \"DNA diet\" or nutrition gene test?",
       "type": "yn"
+    },
+    {
+      "id": "diagnosed",
+      "sec": "food",
+      "text": "Has a doctor confirmed any of these in you or the person this check is for?",
+      "sub": "Some conditions have a specific diet. Pick all that apply.",
+      "type": "multi",
+      "none": "None of these",
+      "opts": {
+        "pku": "Phenylketonuria (PKU)",
+        "galactosemia": "Galactosemia",
+        "celiacDx": "Celiac disease",
+        "fhDx": "Familial hypercholesterolaemia",
+        "g6pdDx": "G6PD deficiency",
+        "thalMajor": "Thalassemia major (needs transfusions)"
+      }
     },
     {
       "id": "hcp",

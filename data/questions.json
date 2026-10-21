@@ -31,6 +31,10 @@
     "end": [
       "sky",
       "Almost done"
+    ],
+    "food": [
+      "teal",
+      "Food & diet"
     ]
   },
   "questions": [
@@ -72,7 +76,8 @@
         "5-12": "5–12",
         "13-17": "13–17",
         "18-29": "18–29",
-        "30-39": "30–39",
+        "30-34": "30–34",
+        "35-39": "35–39",
         "40-59": "40–59",
         "60+": "60+"
       }
@@ -137,6 +142,7 @@
         "cancer": "Cancer",
         "heart": "Early heart attack",
         "highChol": "Very high cholesterol",
+        "celiac": "Celiac disease",
         "suddenDeath": "Sudden death under 40",
         "infantDeath": "Unexplained infant death",
         "dd": "Developmental delay / ID",
@@ -407,6 +413,39 @@
         "warfarin": "Warfarin",
         "antidep": "Antidepressants / opioids"
       }
+    },
+    {
+      "id": "food",
+      "sec": "food",
+      "when": "isAdultOrKid",
+      "text": "Does eating any of these cause problems?",
+      "sub": "Pick all that apply.",
+      "type": "multi",
+      "none": "None of these",
+      "opts": {
+        "milk": "Milk: bloating, gas or loose motions",
+        "wheat": "Wheat (roti, bread): loose motions, weight loss or low hemoglobin",
+        "fava": "Fava beans or some medicines: dark urine or yellow eyes"
+      }
+    },
+    {
+      "id": "anaemia",
+      "sec": "food",
+      "when": "isAdultOrRepro",
+      "text": "Have you been told you have low hemoglobin (anaemia)?",
+      "type": "single",
+      "opts": {
+        "ironNoHelp": "Yes, and iron tablets didn't fix it",
+        "ironHelped": "Yes, it got better with iron",
+        "no": "No / don't know"
+      }
+    },
+    {
+      "id": "dnaDiet",
+      "sec": "food",
+      "when": "isAdult",
+      "text": "Are you thinking about a \"DNA diet\" or nutrition gene test?",
+      "type": "yn"
     },
     {
       "id": "hcp",

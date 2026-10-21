@@ -1,0 +1,76 @@
+[
+  {
+    "id": "general",
+    "when": "always",
+    "title": "Eat a balanced Indian thali",
+    "text": "None of these food tips replace a doctor or dietitian. For everyday eating, ICMR-NIN's guidelines suggest a varied plate: cereals and millets, dal or other protein, plenty of vegetables and fruit, some milk or curd, and less sugar, salt and fried food.",
+    "refs": [
+      "icmrNin"
+    ]
+  },
+  {
+    "id": "folic",
+    "when": "womanPlanningPregnancy",
+    "title": "Folic acid before and in early pregnancy",
+    "text": "Folic acid tablets taken from before pregnancy into the first weeks lower the chance of spine and brain defects such as spina bifida. Food alone usually isn't enough, so ask your doctor about a tablet.",
+    "refs": [
+      "whoAnc"
+    ]
+  },
+  {
+    "id": "thalIron",
+    "when": "thalOrStubbornAnaemia",
+    "title": "Check iron before taking iron tablets",
+    "text": "Thalassemia trait can cause low hemoglobin even when iron is normal. Taking iron for a long time without a proven deficiency doesn't help and can build up in the body. Ask for a ferritin test first.",
+    "refs": [
+      "grBetaThal"
+    ]
+  },
+  {
+    "id": "celiacGF",
+    "when": "celiacPossible",
+    "title": "Don't go gluten-free before the test",
+    "text": "Keep eating wheat until the celiac blood test is done. If celiac disease is confirmed, the treatment is a lifelong, strict gluten-free diet planned with a dietitian. Rice, millets (jowar, bajra, ragi), dal and besan are naturally gluten-free.",
+    "refs": [
+      "acgCeliac"
+    ]
+  },
+  {
+    "id": "lactoseTips",
+    "when": "milkTrouble",
+    "title": "Milk trouble doesn't mean no dairy",
+    "text": "Many people who digest lactose poorly can still have curd and small amounts of milk with meals. If you cut down on milk, get calcium from foods like ragi, sesame (til) and green leafy vegetables.",
+    "refs": [
+      "lactase",
+      "ifct"
+    ]
+  },
+  {
+    "id": "favaAvoid",
+    "when": "favaTrouble",
+    "title": "Avoid fava beans until G6PD is checked",
+    "text": "Fava (broad) beans can break down red blood cells in people with G6PD deficiency. Until you are tested, avoid them, and tell any doctor or pharmacist before starting a new medicine.",
+    "refs": [
+      "cpicG6pd"
+    ]
+  },
+  {
+    "id": "cholesterol",
+    "when": "highCholesterol",
+    "title": "Food helps cholesterol, but may not be enough",
+    "text": "Eating less saturated fat (ghee, butter, vanaspati, fried snacks) and more fibre (oats, dal, vegetables, whole grains) helps lower LDL. In familial hypercholesterolaemia, diet alone is usually not enough and medicines are needed, so don't use diet as a reason to delay seeing a doctor.",
+    "refs": [
+      "icmrNin",
+      "easFH"
+    ]
+  },
+  {
+    "id": "dnaDietTip",
+    "when": "dnaDiet",
+    "title": "Skip the DNA diet test",
+    "text": "Personal diet advice works as well when it is based on what you eat and your blood tests as when it is based on your genes. A dietitian and a routine blood test are a better use of money.",
+    "refs": [
+      "food4me"
+    ]
+  }
+]

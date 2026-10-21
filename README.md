@@ -10,7 +10,7 @@ A free, private, phone-friendly guide that helps people in India work out **whic
 | Tab | What you can do |
 |---|---|
 | **Home** | Pick a journey: planning marriage, pregnancy, a child's health, or your own risks. Myth-buster cards. |
-| **Check** | Chat with "Gia", who asks about 14–20 short questions (32 in total, depending on your answers), including age and food & diet and builds a plan: *Worth discussing → If indicated → Skip for now*, plus ready-made questions to ask your doctor. |
+| **Check** | Chat with "Gia", who asks about 14–20 short questions (32 in total, depending on your answers), including age and food & diet and builds a plan: *Worth discussing → If indicated → Skip for now*, plus ready-made questions to ask your doctor and food tips linked to your answers, each with its source. |
 | **Couple** | Carrier check for two partners with a Punnett square, for recessive (HBB, SMN1, CFTR…) and X-linked (G6PD, DMD, F8/F9) genes. It explains chances and never labels a couple "compatible" or "incompatible". |
 | **Learn** | 23 tests explained (what they detect, what they can't tell you, sources), a short guide to polygenic risk scores, and 12 conditions relevant in India. |
 | **Privacy** | No sign-in, no DNA upload, no name or Aadhaar. Answers stay in the browser and are not saved. |
@@ -43,6 +43,7 @@ data/
   questions.json      Gia's questions, the section each belongs to, and when it is shown
   genes.json          genes for the Couple check (AR = recessive, XL = X-linked)
   conditions.json     conditions in the Learn → India tab
+  diet.json           food tips on the results screen, each linked to an answer and a source
   references.json     sources cited by tests
 manifest.json, sw.js  install-to-home-screen and offline support
 scripts/check-data.js checks the data files are consistent (also runs on every pull request)

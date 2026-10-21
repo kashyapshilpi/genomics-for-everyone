@@ -60,6 +60,19 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | α-thalassemia note | Not reviewed | | |
 | X-linked explanation (sons vs daughters) | Not reviewed | | |
 
+## Food tips (`data/diet.json`)
+
+| Tip | Shown when | Sources | Status | Reviewer | Date |
+|---|---|---|---|---|---|
+| Balanced Indian thali | Always | icmrNin | Not reviewed | | |
+| Folic acid before and in early pregnancy | Woman planning or in pregnancy | whoAnc | Not reviewed | | |
+| Check iron before iron tablets | Thalassemia in family, carrier, or anaemia not helped by iron | grBetaThal | Not reviewed | | |
+| Don't go gluten-free before the test | Wheat symptoms or celiac in family | acgCeliac | Not reviewed | | |
+| Milk trouble doesn't mean no dairy | Milk symptoms | lactase, ifct | Not reviewed | | |
+| Avoid fava beans until G6PD is checked | Fava bean / medicine reaction | cpicG6pd | Not reviewed | | |
+| Food helps cholesterol, but may not be enough | LDL ≥190 or very high cholesterol in family | icmrNin, easFH | Not reviewed | | |
+| Skip the DNA diet test | Considering a DNA diet test | food4me | Not reviewed | | |
+
 ## Known gaps
 - Guideline links in `references.json` are PubMed searches, not exact DOIs. They should be replaced with the exact papers.
 - Indian prevalence numbers are intentionally left out until verified sources are added.

@@ -78,5 +78,25 @@
   "food4me": {
     "n": "Food4Me trial: DNA-based vs diet-based personalised nutrition advice (Celis-Morales et al., Int J Epidemiol 2017)",
     "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Celis-Morales+2017+Food4Me+personalised+nutrition"
+  },
+  "icmrNin": {
+    "n": "ICMR-NIN: Dietary Guidelines for Indians (2024)",
+    "u": "https://www.nin.res.in/"
+  },
+  "ifct": {
+    "n": "ICMR-NIN: Indian Food Composition Tables (IFCT 2017)",
+    "u": "https://www.nin.res.in/"
+  },
+  "whoAnc": {
+    "n": "WHO recommendations on antenatal care for a positive pregnancy experience (2016): daily iron and folic acid",
+    "u": "https://www.who.int/publications/i/item/9789241549912"
+  },
+  "grBetaThal": {
+    "n": "GeneReviews: Beta-thalassemia",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=GeneReviews+beta-thalassemia"
+  },
+  "easFH": {
+    "n": "European Atherosclerosis Society consensus: familial hypercholesterolaemia is underdiagnosed and undertreated (Nordestgaard et al., Eur Heart J 2013)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Nordestgaard+2013+familial+hypercholesterolaemia+consensus+European+Heart+Journal"
   }
 }

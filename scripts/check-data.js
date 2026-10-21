@@ -14,10 +14,12 @@ const tests = read("data/tests.json");
 const { sections, questions } = read("data/questions.json");
 const genes = read("data/genes.json");
 const conds = read("data/conditions.json");
+const diet = read("data/diet.json");
 
 const categories = Object.keys(Function("return " + app.match(/const CATC=(\{.*?\});/)[1])());
 const whenNames = [...app.match(/const WHEN=\{([\s\S]*?)\n\};/)[1].matchAll(/^\s*(?:(\w+)\s*,\s*(\w+)\s*,|(\w+):)/gm)]
   .flatMap(m => [m[1], m[2], m[3]]).filter(Boolean);
+const dietWhen = [...app.match(/const DIET_WHEN=\{([\s\S]*?)\n\};/)[1].matchAll(/^\s*(\w+):/gm)].map(m => m[1]);
 
 const testIds = new Set();
 for (const t of tests) {
@@ -47,10 +49,20 @@ for (const g of genes) {
   if (!g.gene || !g.condition) fail(`gene entry missing gene or condition: ${JSON.stringify(g)}`);
   if (!["AR", "XL"].includes(g.inheritance)) fail(`gene "${g.gene}": inheritance must be AR or XL`);
 }
+// Every food tip needs a source, so nothing is suggested without one.
+const tipIds = new Set();
+for (const t of diet) {
+  if (tipIds.has(t.id)) fail(`diet tip "${t.id}": duplicate id`);
+  tipIds.add(t.id);
+  for (const k of ["id", "when", "title", "text"]) if (!t[k]) fail(`diet tip "${t.id}": missing ${k}`);
+  if (!dietWhen.includes(t.when)) fail(`diet tip "${t.id}": unknown condition "${t.when}" (known: ${dietWhen.join(", ")})`);
+  if (!(t.refs || []).length) fail(`diet tip "${t.id}": needs at least one source in refs`);
+  for (const r of t.refs || []) if (!refs[r]) fail(`diet tip "${t.id}": unknown reference "${r}"`);
+}
 for (const c of conds) for (const k of ["n", "k", "t", "inh", "tx", "prog"]) if (!c[k]) fail(`condition "${c.n}": missing ${k}`);
 
 if (errors.length) {
   console.error(errors.map(e => "✗ " + e).join("\n"));
   process.exit(1);
 }
-console.log(`✓ ${tests.length} tests, ${questions.length} questions, ${genes.length} genes, ${conds.length} conditions, ${Object.keys(refs).length} references`);
+console.log(`✓ ${tests.length} tests, ${questions.length} questions, ${genes.length} genes, ${conds.length} conditions, ${diet.length} diet tips, ${Object.keys(refs).length} references`);

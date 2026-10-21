@@ -21,7 +21,7 @@ const helix=`<svg class="helix" viewBox="0 0 100 200" aria-hidden="true">${Array
 /* ===================== DATA =====================
    Content lives in /data/*.json so reviewers can edit it without touching code.
    It is loaded in boot() at the bottom of this file. */
-let REF, TESTS, T, SEC, Q, GENES, G, CONDS;
+let REF, TESTS, T, SEC, Q, GENES, G, CONDS, DIET;
 const CATC={Carrier:["rose","rings"],Pregnancy:["violet","heart"],Child:["sun","baby"],Targeted:["teal","flask"],Sequencing:["sky","dna"],Adult:["teal","heart"],Medicines:["sun","pill"],Personalized:["violet","chart"],Services:["sky","chat"],Food:["teal","leaf"]};
 
 /* ===================== QUESTIONS ===================== */
@@ -40,6 +40,18 @@ const WHEN={
  isAdultOrKid:a=>a.stage==="adult"||isKid(a),
  isAdultOrRepro:a=>a.stage==="adult"||isRepro(a)
 };
+// Named conditions used by "when" in data/diet.json. A food tip is shown only if its condition is true.
+const DIET_WHEN={
+ always:()=>true,
+ womanPlanningPregnancy:a=>isRepro(a)&&a.sex!=="male",
+ thalOrStubbornAnaemia:a=>(a.fh||[]).includes("blood")||a.carrierStatus==="carrier"||a.anaemia==="ironNoHelp",
+ celiacPossible:a=>(a.food||[]).includes("wheat")||(a.fh||[]).includes("celiac"),
+ milkTrouble:a=>(a.food||[]).includes("milk"),
+ favaTrouble:a=>(a.food||[]).includes("fava"),
+ highCholesterol:a=>a.ldl==="veryhigh"||(a.fh||[]).includes("highChol"),
+ dnaDiet:a=>!!a.dnaDiet
+};
+const dietTips=a=>{const l=DIET.filter(t=>DIET_WHEN[t.when](a));return l.length>1?[...l.filter(t=>t.when!=="always"),...l.filter(t=>t.when==="always")]:l;};
 
 /* ===================== ENGINE ===================== */
 const RANK={relevant:0,consider:1,notroutine:2};
@@ -281,10 +293,11 @@ function sResults(){
   if(resSeg==="plan")body=`<div class="timeline">${steps.map(([items,h,w,c],i)=>`<div class="step c-${c}"><div class="rail"><span class="num">${i+1}</span><span class="line"></span></div><div class="content"><h3>${h}</h3><p class="what">${w}</p>${items.map(r=>card(r,c)).join("")}</div></div>`).join("")}</div>
     ${R.length===0?`<p class="note">From what you shared, there's no clear reason for genetic testing right now. That's a useful answer too.</p>`:""}`;
   if(resSeg==="ask"){const qs=[...R,...C].map(r=>T[r.id].ask).filter(Boolean);body=`<p class="small">Take these to your appointment. Screenshot or copy them.</p><div class="qlist">${qs.map(q=>`<div class="qitem"><span>${esc(q)}</span></div>`).join("")}</div>`;}
+  if(resSeg==="food")body=`<p class="small">Food tips linked to your answers. Each one shows its source.</p><div class="diet">${dietTips(a).map(t=>`<div class="card"><h3>${esc(t.title)}</h3><p>${esc(t.text)}</p>${refsHtml(t.refs)}</div>`).join("")}</div>`;
   if(resSeg==="why")body=`<div class="cons">${cons.map(c=>`<div>${esc(c)}</div>`).join("")||'<p class="small">Nothing extra to note.</p>'}</div><p class="note">This is not a diagnosis and does not calculate your risk. Rules last reviewed 19 Oct 2026, not yet clinically validated.</p>`;
   return `<div class="rhead g"><p class="goal">Goal: ${esc(goal||"Understand my options")}</p><h2>Your genetic test plan</h2>
     <div class="rings">${ring(R.length,tot,"#5ff0d8","Worth discussing")}${ring(C.length,tot,"#ffc46b","If indicated")}${ring(N.length,tot,"#ff9bbd","Skip for now")}</div></div>
-   <div class="rbody g"><div class="seg"><button data-rseg="plan" aria-pressed="${resSeg==="plan"}">Plan</button><button data-rseg="ask" aria-pressed="${resSeg==="ask"}">Ask doctor</button><button data-rseg="why" aria-pressed="${resSeg==="why"}">Notes</button></div>${body}
+   <div class="rbody g"><div class="seg"><button data-rseg="plan" aria-pressed="${resSeg==="plan"}">Plan</button><button data-rseg="ask" aria-pressed="${resSeg==="ask"}">Ask doctor</button><button data-rseg="food" aria-pressed="${resSeg==="food"}">Food</button><button data-rseg="why" aria-pressed="${resSeg==="why"}">Notes</button></div>${body}
    <div class="actions"><button class="outline" data-closeres="1">Back to chat</button><button class="outline" id="restart2">New check</button></div></div>`;
 }
 
@@ -426,12 +439,12 @@ document.addEventListener("input",e=>{if(e.target.id==="tq"){testQuery=e.target.
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet();});
 async function boot(){
   const get=f=>fetch(f).then(r=>{if(!r.ok)throw new Error(f+" "+r.status);return r.json();});
-  const [ref,tests,qs,genes,conds]=await Promise.all(["data/references.json","data/tests.json","data/questions.json","data/genes.json","data/conditions.json"].map(get));
+  const [ref,tests,qs,genes,conds,diet]=await Promise.all(["data/references.json","data/tests.json","data/questions.json","data/genes.json","data/conditions.json","data/diet.json"].map(get));
   REF=ref; TESTS=tests; T=Object.fromEntries(TESTS.map(t=>[t.id,t]));
   SEC=qs.sections;
   Q=qs.questions.map(q=>{if(!q.when)return q;const fn=WHEN[q.when];if(!fn)throw new Error("Unknown condition: "+q.when);return {...q,when:fn};});
   GENES=genes.map(g=>[g.gene,g.condition,g.inheritance,g.note]); G=Object.fromEntries(GENES.map(g=>[g[0],g]));
-  CONDS=conds;
+  CONDS=conds; DIET=diet;
   render();
 }
 boot().catch(err=>{document.getElementById("screen").innerHTML='<p class="note" style="padding:24px">Could not load app data. If you opened index.html directly from disk, run a local server instead (see README). '+String(err.message||err).replace(/[<>&]/g,"")+'</p>';});

@@ -1,0 +1,17 @@
+{
+  "name": "Genomics for Everyone",
+  "short_name": "Genomics",
+  "description": "A free, private guide to which genetic tests may be worth discussing with your doctor. Educational only.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#dfe9ec",
+  "theme_color": "#0b8a83",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

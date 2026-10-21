@@ -1,0 +1,340 @@
+[
+  {
+    "id": "hb",
+    "name": "Blood count + hemoglobin test",
+    "full": "CBC with HPLC or electrophoresis",
+    "cat": "Carrier",
+    "type": "Screening",
+    "purpose": "Finds carriers of common hemoglobin disorders: β-thalassemia trait, sickle cell trait, HbE.",
+    "who": "Couples before marriage or pregnancy, early pregnancy, relatives of someone affected.",
+    "detects": "β-thalassemia trait, HbS, HbE, HbD and other common variants.",
+    "limits": "Can miss α-thalassemia carriers and silent β-carriers; iron deficiency can mask results. DNA testing may be needed.",
+    "gc": "If both partners are carriers.",
+    "india": "Among the most common inherited conditions in India. Low-cost and widely available.",
+    "ask": "Can we both get a CBC and HPLC done, and how should borderline results be followed up?",
+    "refs": [
+      "nhm",
+      "icmr",
+      "gr"
+    ]
+  },
+  {
+    "id": "carrier",
+    "name": "Targeted carrier screening",
+    "full": "DNA test for a chosen set of recessive conditions",
+    "cat": "Carrier",
+    "type": "Screening",
+    "purpose": "Checks if you carry a change for selected conditions such as spinal muscular atrophy.",
+    "who": "People planning a family, especially with family history or related partners.",
+    "detects": "Carrier status for the listed conditions only.",
+    "limits": "A negative result lowers but does not remove the chance of being a carrier.",
+    "gc": "If a carrier result is found.",
+    "india": "Choose conditions by family history and region, never by community labels.",
+    "ask": "Which conditions would you include in carrier screening for our family, and why?",
+    "refs": [
+      "acmgCS",
+      "gr"
+    ]
+  },
+  {
+    "id": "ecs",
+    "name": "Expanded carrier screening",
+    "full": "Panel of tens to hundreds of recessive conditions",
+    "cat": "Carrier",
+    "type": "Screening",
+    "purpose": "Screens many recessive conditions at once.",
+    "who": "Optional before pregnancy; more often discussed when partners are related.",
+    "detects": "Carrier status for panel conditions (panels differ by lab).",
+    "limits": "Can find uncertain variants; most findings matter only if both partners carry the same gene.",
+    "gc": "Yes, before and after.",
+    "india": "Coverage of variants common in Indian families varies by lab.",
+    "ask": "Would an expanded panel add anything useful for us compared with targeted screening?",
+    "refs": [
+      "acmgCS"
+    ]
+  },
+  {
+    "id": "partner",
+    "name": "Partner testing",
+    "full": "Testing the partner of a known carrier for the same condition",
+    "cat": "Carrier",
+    "type": "Screening",
+    "purpose": "Finds out whether both partners carry a change for the same recessive condition.",
+    "who": "Partner of someone known to be a carrier.",
+    "detects": "Carrier status for the same condition (for hemoglobin: CBC + HPLC, sometimes DNA).",
+    "limits": "For HBB, different variants (β-thal, HbS, HbE) can combine, so the partner's report must cover all of them.",
+    "gc": "Yes, if both are carriers.",
+    "india": "The single most useful step after one partner is found to be a thalassemia or sickle carrier.",
+    "ask": "My partner is a carrier. Which test should I have so that all relevant variants are covered?",
+    "refs": [
+      "acmgCS",
+      "gr"
+    ]
+  },
+  {
+    "id": "familial",
+    "name": "Known family variant test",
+    "full": "Testing for the exact change found in a relative",
+    "cat": "Targeted",
+    "type": "Diagnostic / predictive",
+    "purpose": "Tells relatives whether they carry the change already identified in the family.",
+    "who": "Relatives of someone with a confirmed genetic diagnosis.",
+    "detects": "That one specific variant.",
+    "limits": "Answers only that question. Needs the relative's lab report.",
+    "gc": "Yes, especially for adult-onset conditions.",
+    "india": "Usually the most informative and cheapest option when a family variant is known.",
+    "ask": "Here is my relative's report. Can I be tested for this exact variant?",
+    "refs": [
+      "gr",
+      "clinvar"
+    ]
+  },
+  {
+    "id": "karyo",
+    "name": "Karyotype",
+    "full": "Chromosome analysis",
+    "cat": "Targeted",
+    "type": "Diagnostic",
+    "purpose": "Finds large chromosome changes, including balanced rearrangements.",
+    "who": "Couples with recurrent pregnancy loss; suspected chromosome conditions.",
+    "detects": "Extra or missing chromosomes, translocations, large deletions.",
+    "limits": "Low resolution; misses small and single-gene changes.",
+    "gc": "If abnormal.",
+    "india": "Widely available.",
+    "ask": "Should both of us have a karyotype because of the repeated losses?",
+    "refs": [
+      "gr"
+    ]
+  },
+  {
+    "id": "prenatal",
+    "name": "Ultrasound + maternal blood screening",
+    "full": "Routine antenatal scans and serum screening",
+    "cat": "Pregnancy",
+    "type": "Screening",
+    "purpose": "Estimates the chance of selected chromosomal conditions and checks the baby's structure.",
+    "who": "All pregnant women.",
+    "detects": "Higher or lower chance of trisomy 21 and others; visible anomalies.",
+    "limits": "Gives a chance, not a diagnosis. Many genetic conditions are not visible on scan.",
+    "gc": "If high chance or anomaly.",
+    "india": "Availability varies between public and private settings.",
+    "ask": "Which screening tests are due now, and what happens if a result shows a high chance?",
+    "refs": [
+      "acog"
+    ]
+  },
+  {
+    "id": "nipt",
+    "name": "NIPT",
+    "full": "Cell-free DNA screening from the mother's blood",
+    "cat": "Pregnancy",
+    "type": "Screening",
+    "purpose": "More sensitive screening for trisomies 21, 18 and 13.",
+    "who": "Pregnant women, usually from about ten weeks.",
+    "detects": "High or low chance of the conditions tested.",
+    "limits": "Still screening. A high-chance result must be confirmed by CVS or amniocentesis. Does not cover most single-gene conditions.",
+    "gc": "Yes, after a high-chance result.",
+    "india": "Mostly private labs, paid separately.",
+    "ask": "Is NIPT useful in my situation, and what would a high-chance result mean next?",
+    "refs": [
+      "acog"
+    ]
+  },
+  {
+    "id": "invasive",
+    "name": "CVS or amniocentesis",
+    "full": "Diagnostic prenatal sampling with genetic testing",
+    "cat": "Pregnancy",
+    "type": "Diagnostic",
+    "purpose": "Confirms or rules out a specific condition in the baby.",
+    "who": "High-chance screening, scan anomaly, or a known family condition.",
+    "detects": "Depends on the test run on the sample: chromosomes, a family variant, or more.",
+    "limits": "Small procedure risk. CVS is usually done around 10–13 weeks and amniocentesis from about 15 weeks.",
+    "gc": "Yes.",
+    "india": "Done by fetal medicine specialists; timing matters, so ask early.",
+    "ask": "Is diagnostic testing advised, which test fits my weeks, and which lab tests would be run on the sample?",
+    "refs": [
+      "acog",
+      "gr"
+    ]
+  },
+  {
+    "id": "nbs",
+    "name": "Newborn screening",
+    "full": "Heel-prick dried blood spot",
+    "cat": "Child",
+    "type": "Screening",
+    "purpose": "Finds treatable conditions before symptoms start.",
+    "who": "All newborns, usually in the first few days.",
+    "detects": "Conditions on the local panel, which may include congenital hypothyroidism, CAH, G6PD deficiency, galactosemia, PKU.",
+    "limits": "Panels differ across states and hospitals. A positive screen needs confirmation.",
+    "gc": "If a condition is confirmed.",
+    "india": "Ask which conditions your hospital covers.",
+    "ask": "Which conditions does this hospital's newborn screening include, and when will we get results?",
+    "refs": [
+      "nhm",
+      "gr"
+    ]
+  },
+  {
+    "id": "cma",
+    "name": "Chromosomal microarray",
+    "full": "Scan for small missing or extra chromosome pieces (CNVs)",
+    "cat": "Child",
+    "type": "Diagnostic",
+    "purpose": "Finds copy-number changes linked to developmental delay and birth differences.",
+    "who": "Children with unexplained delay, ID or multiple anomalies.",
+    "detects": "Deletions and duplications.",
+    "limits": "Misses single-letter changes and balanced rearrangements.",
+    "gc": "Yes.",
+    "india": "Widely available; exome is increasingly used alongside it.",
+    "ask": "Would microarray or exome be the better first test for my child?",
+    "refs": [
+      "acmgES",
+      "gr"
+    ]
+  },
+  {
+    "id": "panel",
+    "name": "Targeted gene panel",
+    "full": "Sequencing genes linked to one clinical problem",
+    "cat": "Targeted",
+    "type": "Diagnostic",
+    "purpose": "Looks for a cause among known genes for epilepsy, hearing, retina, muscle, heart, immunity.",
+    "who": "People with a clear clinical picture matching the panel.",
+    "detects": "Changes in the listed genes.",
+    "limits": "Genes not on the panel are not examined.",
+    "gc": "Yes.",
+    "india": "Often cheaper and faster than exome when the picture is clear.",
+    "ask": "Is a targeted panel enough, or would exome give a better chance of an answer?",
+    "refs": [
+      "gr",
+      "clingen",
+      "ilae"
+    ]
+  },
+  {
+    "id": "wes",
+    "name": "Whole-exome sequencing",
+    "full": "Most protein-coding regions (~1–2% of the genome)",
+    "cat": "Sequencing",
+    "type": "Diagnostic",
+    "purpose": "Searches for the cause of a suspected rare genetic condition across most genes.",
+    "who": "People with features of a genetic condition, often children. Trio WES includes both parents.",
+    "detects": "Pathogenic and likely pathogenic variants; some labs also report CNVs and mitochondrial variants.",
+    "limits": "A negative result does not rule out a genetic condition. Can find VUS. Reanalysis later may help.",
+    "gc": "Yes, including secondary findings.",
+    "india": "Indian variants are under-represented in public databases.",
+    "ask": "Should we do trio exome, and will the lab reanalyse the data later if nothing is found?",
+    "refs": [
+      "acmgES",
+      "clinvar",
+      "gr"
+    ]
+  },
+  {
+    "id": "wgs",
+    "name": "Whole-genome sequencing",
+    "full": "Almost the entire genome",
+    "cat": "Sequencing",
+    "type": "Diagnostic",
+    "purpose": "Broadest single test for suspected rare conditions.",
+    "who": "Selected cases, often critically ill infants or after a negative exome.",
+    "detects": "Sequence changes, CNVs, many structural variants, mtDNA if analysed.",
+    "limits": "More data is not always more answers; more VUS and higher cost.",
+    "gc": "Yes.",
+    "india": "Fewer labs; usually costs more than exome.",
+    "ask": "After a negative exome, is genome sequencing or reanalysis the better next step?",
+    "refs": [
+      "acmgES"
+    ]
+  },
+  {
+    "id": "hcp",
+    "name": "Hereditary cancer panel",
+    "full": "BRCA1/2, Lynch syndrome genes and others",
+    "cat": "Adult",
+    "type": "Diagnostic / predictive",
+    "purpose": "Finds inherited changes that raise risk of certain cancers.",
+    "who": "People with cancer meeting criteria, or relatives with strong family history or a known variant.",
+    "detects": "Germline pathogenic variants in panel genes.",
+    "limits": "Most cancers are not caused by one inherited change. Different from routine cancer screening.",
+    "gc": "Yes.",
+    "india": "Criteria-based testing is more informative than testing everyone.",
+    "ask": "Does my personal or family history meet criteria for hereditary cancer testing? Should an affected relative be tested first?",
+    "refs": [
+      "nccn",
+      "gr"
+    ]
+  },
+  {
+    "id": "fh",
+    "name": "Inherited heart condition testing",
+    "full": "FH, cardiomyopathy and arrhythmia genes",
+    "cat": "Adult",
+    "type": "Diagnostic / predictive",
+    "purpose": "Confirms an inherited cause and lets relatives be tested.",
+    "who": "Very high LDL, early heart attacks or young sudden death in the family, cardiomyopathy.",
+    "detects": "Variants in LDLR, APOB, PCSK9 or heart muscle and rhythm genes.",
+    "limits": "Clinical tests come first (lipid profile, ECG, echo).",
+    "gc": "Yes, for family testing.",
+    "india": "Familial hypercholesterolaemia is thought to be under-diagnosed.",
+    "ask": "Could this be familial hypercholesterolaemia or an inherited heart condition, and should my relatives be checked?",
+    "refs": [
+      "gr",
+      "clingen"
+    ]
+  },
+  {
+    "id": "pgx",
+    "name": "Pharmacogenomic test",
+    "full": "Genes that affect how you handle certain medicines",
+    "cat": "Medicines",
+    "type": "Medicine guidance",
+    "purpose": "Helps a doctor choose a medicine or dose for selected drugs.",
+    "who": "People starting medicines with established gene–drug guidance.",
+    "detects": "CYP2C19, CYP2C9/VKORC1, HLA-B, DPYD, TPMT/NUDT15 and others.",
+    "limits": "Only some drugs have strong guidance. Never change a medicine on your own.",
+    "gc": "Usually not needed.",
+    "india": "HLA-B*15:02 before carbamazepine is relevant in parts of South and Southeast Asia.",
+    "ask": "Is there a gene test recommended before I start this medicine?",
+    "refs": [
+      "cpic",
+      "pharmgkb"
+    ]
+  },
+  {
+    "id": "prs",
+    "name": "Polygenic risk score",
+    "full": "Many common variants combined for one disease",
+    "cat": "Personalized",
+    "type": "Risk estimate",
+    "purpose": "Estimates relative inherited susceptibility to diseases like type 2 diabetes.",
+    "who": "Education and research; not a routine clinical test in India yet.",
+    "detects": "Where your score sits versus a reference population.",
+    "limits": "Not a diagnosis. Mostly built on European data and may be less accurate for South Asians.",
+    "gc": "Helpful for understanding results.",
+    "india": "Must be compared against a South Asian reference.",
+    "ask": "",
+    "refs": [
+      "pgs"
+    ]
+  },
+  {
+    "id": "gc",
+    "name": "Genetic counselling",
+    "full": "Consultation with a genetic counsellor or clinical geneticist",
+    "cat": "Services",
+    "type": "Consultation",
+    "purpose": "Helps you decide whether and how to test, and what results mean.",
+    "who": "Known family variant, affected child, related partners, abnormal screening, complex history.",
+    "detects": "Not a test.",
+    "limits": "Usually paid in private settings; some government genetics departments offer it.",
+    "gc": "—",
+    "india": "Available in medical genetics departments of larger hospitals.",
+    "ask": "Can you refer me to a genetic counsellor or clinical geneticist?",
+    "refs": [
+      "nsgc"
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+name: Add a test or gene
+description: Suggest a new test for the Learn/Check tabs or a gene for the Couple check.
+labels: ["content", "enhancement"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What to add
+      options: ["Test", "Gene (Couple check)", "Condition (Learn → India)"]
+    validations: { required: true }
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: "For a test: what it is, who it's for, what it can and cannot detect, availability in India. For a gene: condition and inheritance (recessive / X-linked)."
+    validations: { required: true }
+  - type: textarea
+    id: source
+    attributes:
+      label: Sources
+    validations: { required: true }

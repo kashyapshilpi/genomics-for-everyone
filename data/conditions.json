@@ -1,0 +1,82 @@
+[
+  {
+    "n": "β-thalassemia",
+    "k": "mono",
+    "t": "useful",
+    "inh": "Recessive (HBB)",
+    "tx": "Transfusion + iron chelation; transplant for some.",
+    "prog": "Pre-marital and antenatal screening in several states."
+  },
+  {
+    "n": "Sickle cell disease",
+    "k": "mono",
+    "t": "useful",
+    "inh": "Recessive (HBB)",
+    "tx": "Hydroxyurea, infection prevention, pain care.",
+    "prog": "National Sickle Cell Anaemia Elimination Mission (launched 2023)."
+  },
+  {
+    "n": "Spinal muscular atrophy",
+    "k": "mono",
+    "t": "useful",
+    "inh": "Recessive (SMN1)",
+    "tx": "Disease-modifying therapies; early diagnosis matters.",
+    "prog": "Carrier testing available privately."
+  },
+  {
+    "n": "G6PD deficiency",
+    "k": "mono",
+    "t": "useful",
+    "inh": "X-linked",
+    "tx": "Avoid trigger medicines and foods.",
+    "prog": "In some newborn screening panels."
+  },
+  {
+    "n": "Hemophilia A & B",
+    "k": "mono",
+    "t": "useful",
+    "inh": "X-linked (F8, F9)",
+    "tx": "Clotting-factor replacement.",
+    "prog": "Carrier testing for female relatives."
+  },
+  {
+    "n": "Duchenne muscular dystrophy",
+    "k": "mono",
+    "t": "useful",
+    "inh": "X-linked (DMD)",
+    "tx": "Supportive care, steroids, some targeted therapies.",
+    "prog": "Testing in genetics centres."
+  },
+  {
+    "n": "Familial hypercholesterolaemia",
+    "k": "mono",
+    "t": "useful",
+    "inh": "Dominant (LDLR, APOB, PCSK9)",
+    "tx": "Lipid-lowering drugs; test relatives.",
+    "prog": "Lipid profile first."
+  },
+  {
+    "n": "Hereditary breast & ovarian cancer",
+    "k": "mono",
+    "t": "useful",
+    "inh": "Dominant (BRCA1/2 and others)",
+    "tx": "Enhanced screening, risk-reducing options.",
+    "prog": "Criteria-based testing in oncology."
+  },
+  {
+    "n": "Type 2 diabetes",
+    "k": "complex",
+    "t": "notjustified",
+    "inh": "Many genes + lifestyle",
+    "tx": "Lifestyle, medicines, regular blood sugar tests.",
+    "prog": "Blood tests, not genetic tests, for screening."
+  },
+  {
+    "n": "Coronary artery disease",
+    "k": "complex",
+    "t": "notjustified",
+    "inh": "Many genes + lifestyle (except FH)",
+    "tx": "Control BP, lipids, smoking, diabetes.",
+    "prog": "PRS still a research tool."
+  }
+]

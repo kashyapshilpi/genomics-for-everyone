@@ -1,0 +1,58 @@
+{
+  "acmgES": {
+    "n": "ACMG guideline: exome/genome sequencing for congenital anomalies, developmental delay or ID (Manickam et al., Genet Med 2021)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Manickam+2021+exome+genome+sequencing+pediatric+congenital+anomalies"
+  },
+  "acmgCS": {
+    "n": "ACMG practice resource: carrier screening in pregnancy and preconception (Gregg et al., Genet Med 2021)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Gregg+2021+carrier+screening+ACMG+practice+resource"
+  },
+  "acog": {
+    "n": "ACOG Practice Bulletin No. 226: Screening for fetal chromosomal abnormalities (2020)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=ACOG+Practice+Bulletin+226+screening+fetal+chromosomal+abnormalities"
+  },
+  "cpic": {
+    "n": "CPIC guidelines",
+    "u": "https://cpicpgx.org/guidelines/"
+  },
+  "pharmgkb": {
+    "n": "PharmGKB",
+    "u": "https://www.pharmgkb.org/"
+  },
+  "gr": {
+    "n": "GeneReviews (NCBI)",
+    "u": "https://www.ncbi.nlm.nih.gov/books/NBK1116/"
+  },
+  "clinvar": {
+    "n": "ClinVar (NCBI)",
+    "u": "https://www.ncbi.nlm.nih.gov/clinvar/"
+  },
+  "clingen": {
+    "n": "ClinGen",
+    "u": "https://clinicalgenome.org/"
+  },
+  "pgs": {
+    "n": "PGS Catalog",
+    "u": "https://www.pgscatalog.org/"
+  },
+  "nccn": {
+    "n": "NCCN Guidelines: Genetic/Familial High-Risk Assessment",
+    "u": "https://www.nccn.org/guidelines"
+  },
+  "icmr": {
+    "n": "ICMR",
+    "u": "https://www.icmr.gov.in/"
+  },
+  "nhm": {
+    "n": "National Health Mission",
+    "u": "https://nhm.gov.in/"
+  },
+  "ilae": {
+    "n": "ILAE",
+    "u": "https://www.ilae.org/"
+  },
+  "nsgc": {
+    "n": "NSGC",
+    "u": "https://www.nsgc.org/"
+  }
+}

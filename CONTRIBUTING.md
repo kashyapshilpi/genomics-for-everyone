@@ -22,6 +22,7 @@ Open an issue and choose a template:
    - `tests.json`: each test's `purpose`, `who`, `detects`, `limits`, `india`, `ask`, and `refs` (keys from `references.json`).
    - `questions.json`: `text`, `sub`, and `opts` (answer labels). `when` names a condition defined in `WHEN` in `js/app.js`.
    - `genes.json`: `inheritance` is `AR` (recessive) or `XL` (X-linked).
+   - `diet.json`: food tips. `when` names a condition in `DIET_WHEN` in `js/app.js`, and every tip must list at least one source in `refs` (the data check fails otherwise).
    - `conditions.json`, `references.json`.
 2. Edit it on GitHub (pencil icon) or locally.
 3. Run `node scripts/check-data.js` (it also runs automatically on your pull request).

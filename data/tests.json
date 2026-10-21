@@ -321,6 +321,77 @@
     ]
   },
   {
+    "id": "celiac",
+    "name": "Celiac disease blood test",
+    "full": "tTG-IgA antibody with total IgA (HLA-DQ2/DQ8 gene test only in special cases)",
+    "cat": "Food",
+    "type": "Blood test",
+    "purpose": "Checks whether wheat, barley or rye (gluten) is damaging the gut.",
+    "who": "People with loose motions, weight loss, poor growth or anaemia that doesn't improve with iron, and close relatives of someone with celiac disease.",
+    "detects": "Antibodies that are raised in celiac disease. A gut biopsy usually confirms the diagnosis.",
+    "limits": "Only works while you are still eating wheat. The HLA gene test cannot diagnose celiac disease: many healthy people carry these genes. A negative HLA test makes celiac disease very unlikely.",
+    "gc": "Usually not needed.",
+    "india": "More common in North India, where wheat is a staple food.",
+    "ask": "Should I be tested for celiac disease before I change my diet?",
+    "refs": [
+      "acgCeliac",
+      "celiacIndia"
+    ]
+  },
+  {
+    "id": "lactose",
+    "name": "Milk (lactose) intolerance check",
+    "full": "Dairy-free trial or hydrogen breath test; LCT gene test rarely needed",
+    "cat": "Food",
+    "type": "Diet trial / breath test",
+    "purpose": "Finds out whether milk sugar (lactose) causes your symptoms.",
+    "who": "People who get bloating, gas or loose motions after milk.",
+    "detects": "Whether symptoms settle without milk, or whether lactose is poorly digested on a breath test.",
+    "limits": "The common LCT gene marker was found in European populations and does not capture all the variants in South Asians, so a gene result can be misleading. Many people who digest lactose poorly can still have curd and small amounts of milk.",
+    "gc": "Not needed.",
+    "india": "Many adults in India digest lactose less well than children do. This is normal and is not a disease.",
+    "ask": "Could my symptoms be lactose intolerance, or something else?",
+    "refs": [
+      "lactase"
+    ]
+  },
+  {
+    "id": "g6pd",
+    "name": "G6PD test",
+    "full": "G6PD enzyme activity blood test",
+    "cat": "Food",
+    "type": "Blood test",
+    "purpose": "Checks for G6PD deficiency, where red blood cells break down after certain medicines, infections or fava beans.",
+    "who": "People with dark urine, yellow eyes or sudden tiredness after fava beans or some medicines; newborns with jaundice; relatives of someone with G6PD deficiency.",
+    "detects": "Low G6PD enzyme activity.",
+    "limits": "Can read falsely normal soon after a breakdown episode. Women can have a partial deficiency that is easy to miss, and a gene test may help them.",
+    "gc": "Usually not needed.",
+    "india": "G6PD deficiency is found across India and is checked in some newborn screening programmes.",
+    "ask": "Are there medicines or foods I should avoid?",
+    "refs": [
+      "cpicG6pd",
+      "gr"
+    ]
+  },
+  {
+    "id": "nutri",
+    "name": "Nutrigenomics (\"DNA diet\") test",
+    "full": "Gene panels sold for diet, weight or vitamin advice (e.g. MTHFR, FTO, APOE)",
+    "cat": "Personalized",
+    "type": "Consumer test",
+    "purpose": "Claims to tailor your diet to your genes.",
+    "who": "Not recommended for routine use.",
+    "detects": "Common gene variants, each with a very small effect on weight, cholesterol or vitamin levels.",
+    "limits": "In a large trial, DNA-based diet advice worked no better than advice based on what people actually eat. MTHFR testing is not recommended. Blood tests (sugar, lipids, B12, vitamin D) are more useful.",
+    "gc": "Not needed.",
+    "india": "Widely sold in India, often with a lot of marketing.",
+    "ask": "Would a blood test tell us more than a DNA diet test?",
+    "refs": [
+      "food4me",
+      "acmgMthfr"
+    ]
+  },
+  {
     "id": "gc",
     "name": "Genetic counselling",
     "full": "Consultation with a genetic counsellor or clinical geneticist",

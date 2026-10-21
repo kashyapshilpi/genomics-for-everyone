@@ -28,6 +28,10 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | Inherited heart condition testing (`fh`) | Adult | gr, clingen | Not reviewed | | |
 | Pharmacogenomic test (`pgx`) | Medicines | cpic, pharmgkb | Not reviewed | | |
 | Polygenic risk score (`prs`) | Personalized | pgs | Not reviewed | | |
+| Celiac disease blood test (`celiac`) | Food | acgCeliac, celiacIndia | Not reviewed | | |
+| Milk (lactose) intolerance check (`lactose`) | Food | lactase | Not reviewed | | |
+| G6PD test (`g6pd`) | Food | cpicG6pd, gr | Not reviewed | | |
+| Nutrigenomics ("DNA diet") test (`nutri`) | Personalized | food4me, acmgMthfr | Not reviewed | | |
 | Genetic counselling (`gc`) | Services | nsgc | Not reviewed | | |
 
 ## Recommendation logic (`recommend()` in `js/app.js`)
@@ -44,6 +48,8 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | Adult: medicines (pharmacogenomics) | Not reviewed | | |
 | Polygenic risk scores (always "not routine") | Not reviewed | | |
 | Known family variant | Not reviewed | | |
+| Age: pregnancy at 35+ (NIPT/screening), woman 35+ planning pregnancy, teenagers and adult-onset testing, PRS at 60+ | Not reviewed | | |
+| Food & diet: wheat → celiac, milk → lactose (and cow's milk allergy in under-5s), fava beans → G6PD, anaemia not responding to iron → HPLC + celiac, DNA diet tests | Not reviewed | | |
 
 ## Couple check (`data/genes.json` and Punnett-square logic)
 
@@ -53,6 +59,19 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | HBB compound heterozygosity note (β-thal with HbS / HbE) | Not reviewed | | |
 | α-thalassemia note | Not reviewed | | |
 | X-linked explanation (sons vs daughters) | Not reviewed | | |
+
+## Food tips (`data/diet.json`)
+
+| Tip | Shown when | Sources | Status | Reviewer | Date |
+|---|---|---|---|---|---|
+| Balanced Indian thali | Always | icmrNin | Not reviewed | | |
+| Folic acid before and in early pregnancy | Woman planning or in pregnancy | whoAnc | Not reviewed | | |
+| Check iron before iron tablets | Thalassemia in family, carrier, or anaemia not helped by iron | grBetaThal | Not reviewed | | |
+| Don't go gluten-free before the test | Wheat symptoms or celiac in family | acgCeliac | Not reviewed | | |
+| Milk trouble doesn't mean no dairy | Milk symptoms | lactase, ifct | Not reviewed | | |
+| Avoid fava beans until G6PD is checked | Fava bean / medicine reaction | cpicG6pd | Not reviewed | | |
+| Food helps cholesterol, but may not be enough | LDL ≥190 or very high cholesterol in family | icmrNin, easFH | Not reviewed | | |
+| Skip the DNA diet test | Considering a DNA diet test | food4me | Not reviewed | | |
 
 ## Known gaps
 - Guideline links in `references.json` are PubMed searches, not exact DOIs. They should be replaced with the exact papers.

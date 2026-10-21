@@ -1,8 +1,8 @@
 // Offline support. Bump VERSION whenever any cached file changes so phones pick up the update.
-const VERSION = "gfe-v1";
+const VERSION = "gfe-v3";
 const FILES = [
   "./", "index.html", "css/app.css", "js/app.js", "manifest.json",
-  "data/references.json", "data/tests.json", "data/questions.json", "data/genes.json", "data/conditions.json",
+  "data/references.json", "data/tests.json", "data/questions.json", "data/genes.json", "data/conditions.json", "data/diet.json",
   "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png"
 ];
 

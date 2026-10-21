@@ -78,5 +78,21 @@
     "inh": "Many genes + lifestyle (except FH)",
     "tx": "Control BP, lipids, smoking, diabetes.",
     "prog": "PRS still a research tool."
+  },
+  {
+    "n": "Celiac disease",
+    "k": "complex",
+    "t": "useful",
+    "inh": "HLA-DQ2/DQ8 genes + eating gluten",
+    "tx": "Lifelong gluten-free diet.",
+    "prog": "Blood test (tTG-IgA) first; the HLA gene test only helps rule it out."
+  },
+  {
+    "n": "Lactose intolerance in adults",
+    "k": "mono",
+    "t": "notjustified",
+    "inh": "LCT gene regulation (normal variation)",
+    "tx": "Reduce milk; curd and small amounts are often fine.",
+    "prog": "A diet trial or breath test, not a gene test."
   }
 ]

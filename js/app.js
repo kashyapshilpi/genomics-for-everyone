@@ -12,6 +12,7 @@ const I={
  users:`<circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5M14 15.2c.6-.1 1.3-.2 2-.2 3 0 6 2 6 5"/>`,
  shield:`<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>`,
  back:`<path d="M15 6l-6 6 6 6"/>`, close:`<path d="M6 6l12 12M18 6L6 18"/>`, redo:`<path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/>`,
+ leaf:`<path d="M5 19c0-8 6-14 15-14 0 9-6 15-14 15"/><path d="M5 19l8-8"/>`,
  chev:`<path d="M9 6l6 6-6 6"/>`, play:`<path d="M8 5v14l11-7z" fill="currentColor"/>`, copy:`<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/>`
 };
 const ico=(n,s=20)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[n]}</svg>`;
@@ -21,7 +22,7 @@ const helix=`<svg class="helix" viewBox="0 0 100 200" aria-hidden="true">${Array
    Content lives in /data/*.json so reviewers can edit it without touching code.
    It is loaded in boot() at the bottom of this file. */
 let REF, TESTS, T, SEC, Q, GENES, G, CONDS;
-const CATC={Carrier:["rose","rings"],Pregnancy:["violet","heart"],Child:["sun","baby"],Targeted:["teal","flask"],Sequencing:["sky","dna"],Adult:["teal","heart"],Medicines:["sun","pill"],Personalized:["violet","chart"],Services:["sky","chat"]};
+const CATC={Carrier:["rose","rings"],Pregnancy:["violet","heart"],Child:["sun","baby"],Targeted:["teal","flask"],Sequencing:["sky","dna"],Adult:["teal","heart"],Medicines:["sun","pill"],Personalized:["violet","chart"],Services:["sky","chat"],Food:["teal","leaf"]};
 
 /* ===================== QUESTIONS ===================== */
 const isKid=a=>["child","newborn"].includes(a.stage), isRepro=a=>["marriage","preconception","pregnant"].includes(a.stage);
@@ -35,7 +36,9 @@ const WHEN={
  knownFamilyVariant:a=>a.known,
  childHasSeizures:a=>(a.child||[]).includes("seizures"),
  childWithConcerns:a=>isKid(a)&&(a.child||[]).length>0,
- adultWithCancerHistory:a=>a.stage==="adult"&&hasCancer(a)
+ adultWithCancerHistory:a=>a.stage==="adult"&&hasCancer(a),
+ isAdultOrKid:a=>a.stage==="adult"||isKid(a),
+ isAdultOrRepro:a=>a.stage==="adult"||isRepro(a)
 };
 
 /* ===================== ENGINE ===================== */
@@ -141,6 +144,32 @@ function recommend(a){
     add("wgs","notroutine","Not a general health check for healthy adults.");
     if(fh.has("blood"))add("hb","consider","Knowing your carrier status helps with family planning and informs relatives.");
   }
+  /* ---- age ---- */
+  const age35=["35-39","40-59","60+"].includes(a.age);
+  if(s==="pregnant"&&age35&&!["high","scan"].includes(a.screen)){
+    add("nipt","relevant","At 35 or older, the chance of a chromosomal condition such as Down syndrome is higher. NIPT or combined screening is worth discussing early; a high-chance result still needs a diagnostic test.");
+    cons.push("Screening for chromosomal conditions is offered to every pregnant woman, but it matters more at 35 or older.");
+  }
+  if(["marriage","preconception"].includes(s)&&age35&&a.sex!=="male")cons.push("If the woman will be 35 or older at pregnancy, the chance of chromosomal conditions is higher. This doesn't change carrier testing, but ask about screening early in pregnancy.");
+  if(s==="adult"&&a.age==="13-17")cons.push("Testing teenagers for adult-onset conditions is usually delayed until 18, so they can decide for themselves. Testing for a condition that affects them now is different.");
+  if(s==="adult"&&a.age==="60+")add("prs","notroutine","At 60 or older, your age, blood pressure, sugar and cholesterol tell your doctor much more than a polygenic score.");
+
+  /* ---- food & diet ---- */
+  const food=new Set(a.food||[]);
+  if(food.has("wheat")){add("celiac","relevant","Loose motions, weight loss or low hemoglobin with wheat can be celiac disease. A blood test is the first step.",true);cons.push("Don't stop eating wheat before the celiac blood test. It can make the result falsely normal.");}
+  if(fh.has("celiac"))add("celiac","consider","Close relatives of someone with celiac disease have a higher chance of it. A blood test is worth discussing, especially if you have symptoms or anaemia.");
+  if(food.has("milk")){
+    add("lactose","consider","Trouble with milk is usually checked with a short milk-free trial or a breath test. A gene test is rarely needed.");
+    if(["0-1","1-4"].includes(a.age))cons.push("In young children, problems with milk are more often a cow's milk allergy or follow a stomach infection. See a paediatrician.");
+  }
+  if(food.has("fava"))add("g6pd","relevant","Dark urine or yellow eyes after fava beans or certain medicines can be a sign of G6PD deficiency. A simple blood test checks it.",true);
+  if(a.anaemia==="ironNoHelp"){
+    add("hb","relevant","Low hemoglobin that doesn't improve with iron can be thalassemia trait. A hemoglobin (HPLC) test tells them apart.");
+    add("celiac","consider","Celiac disease is another cause of anaemia that doesn't get better with iron tablets.");
+  }
+  if(a.anaemia==="ironHelped"&&(fh.has("blood")||a.carrierStatus==="carrier"))cons.push("Thalassemia trait can also lower hemoglobin, and iron doesn't fix it. Check ferritin before taking iron for a long time.");
+  if(a.dnaDiet)add("nutri","notroutine","DNA diet tests rarely change advice. Blood tests and a dietitian are more useful.");
+
   if(a.known){add("familial","relevant","Testing for the exact family variant is usually the most informative and cheapest option. Bring the relative's report.",true);add("gc","relevant","Helps you understand what a result would mean for you and others.");}
   if(fh.has("geneticDx")&&!a.known)add("gc","relevant","A relative has a genetic diagnosis. A counsellor can check if targeted testing is possible.");
   if(!out.has("gc"))add("gc","consider","Helpful whenever results could affect you or your relatives.");
@@ -189,7 +218,7 @@ function bar(){
 }
 function sHome(){
   const tiles=[["marriage","Planning marriage","Thalassemia & carrier tests","rose","rings"],["preconception","Planning pregnancy","Before & during pregnancy","violet","heart"],["child","My child's health","Seizures, delay & more","sun","baby"],["adult","My inherited risks","Cancer, heart, medicines","teal","dna"]];
-  const facts=[["f1","Carrier ≠ sick","Most carriers are healthy. It matters mainly when both partners carry the same condition."],["f2","NIPT is screening","A high-chance NIPT result must be confirmed by CVS or amniocentesis before any decision."],["f3","Negative exome ≠ no cause","Exome misses some changes. Reanalysis a year or two later can find new answers."],["f4","PRS depends on who you compare with","The same genome can look average or extreme depending on the reference population."],["f5","Ask before you change medicines","Gene–drug results guide your doctor. Never stop or switch a medicine on your own."]];
+  const facts=[["f6","No DNA test needed to eat well","In a large trial, gene-based diet advice worked no better than advice based on what people actually eat."],["f1","Carrier ≠ sick","Most carriers are healthy. It matters mainly when both partners carry the same condition."],["f2","NIPT is screening","A high-chance NIPT result must be confirmed by CVS or amniocentesis before any decision."],["f3","Negative exome ≠ no cause","Exome misses some changes. Reanalysis a year or two later can find new answers."],["f4","PRS depends on who you compare with","The same genome can look average or extreme depending on the reference population."],["f5","Ask before you change medicines","Gene–drug results guide your doctor. Never stop or switch a medicine on your own."]];
   const last=hist.length&&!nextQ()?recommend(answers()):null;
   return `<div class="hero g">${helix}<div class="hero-in">
      <span class="hi">Namaste</span><p>Find the genetic tests worth discussing with your doctor, and the ones you can skip.</p>

@@ -105,7 +105,7 @@ p{margin:0} a{color:var(--sky)}
 .fact .k{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
 .fact b{font-family:var(--f-display);font-size:1.15rem;line-height:1.2}
 .fact p{font-size:.85rem;opacity:.92}
-.f1{background:linear-gradient(140deg,#0b8a83,#0d6b8f)} .f2{background:linear-gradient(140deg,#d6336c,#a3265a)} .f3{background:linear-gradient(140deg,#6a4bd6,#3a3fa8)} .f4{background:linear-gradient(140deg,#c2620a,#a33f12)} .f5{background:linear-gradient(140deg,#1f6fd1,#1f4e79)}
+.f1{background:linear-gradient(140deg,#0b8a83,#0d6b8f)} .f2{background:linear-gradient(140deg,#d6336c,#a3265a)} .f3{background:linear-gradient(140deg,#6a4bd6,#3a3fa8)} .f4{background:linear-gradient(140deg,#c2620a,#a33f12)} .f5{background:linear-gradient(140deg,#1f6fd1,#1f4e79)}.f6{background:linear-gradient(140deg,#2f9e44,#0b8a83)}
 .statcard{border-radius:22px;padding:16px;background:var(--surface);border:1px solid var(--line);display:grid;gap:12px}
 .statrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .stat{border-radius:16px;padding:12px;background:var(--bg);border:1px solid var(--line)}

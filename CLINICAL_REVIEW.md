@@ -28,6 +28,10 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | Inherited heart condition testing (`fh`) | Adult | gr, clingen | Not reviewed | | |
 | Pharmacogenomic test (`pgx`) | Medicines | cpic, pharmgkb | Not reviewed | | |
 | Polygenic risk score (`prs`) | Personalized | pgs | Not reviewed | | |
+| Celiac disease blood test (`celiac`) | Food | acgCeliac, celiacIndia | Not reviewed | | |
+| Milk (lactose) intolerance check (`lactose`) | Food | lactase | Not reviewed | | |
+| G6PD test (`g6pd`) | Food | cpicG6pd, gr | Not reviewed | | |
+| Nutrigenomics ("DNA diet") test (`nutri`) | Personalized | food4me, acmgMthfr | Not reviewed | | |
 | Genetic counselling (`gc`) | Services | nsgc | Not reviewed | | |
 
 ## Recommendation logic (`recommend()` in `js/app.js`)
@@ -44,6 +48,8 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | Adult: medicines (pharmacogenomics) | Not reviewed | | |
 | Polygenic risk scores (always "not routine") | Not reviewed | | |
 | Known family variant | Not reviewed | | |
+| Age: pregnancy at 35+ (NIPT/screening), woman 35+ planning pregnancy, teenagers and adult-onset testing, PRS at 60+ | Not reviewed | | |
+| Food & diet: wheat → celiac, milk → lactose (and cow's milk allergy in under-5s), fava beans → G6PD, anaemia not responding to iron → HPLC + celiac, DNA diet tests | Not reviewed | | |
 
 ## Couple check (`data/genes.json` and Punnett-square logic)
 

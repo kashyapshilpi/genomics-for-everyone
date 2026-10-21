@@ -54,5 +54,29 @@
   "nsgc": {
     "n": "NSGC",
     "u": "https://www.nsgc.org/"
+  },
+  "acgCeliac": {
+    "n": "ACG guideline: diagnosis and management of celiac disease (Rubio-Tapia et al., Am J Gastroenterol 2023)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Rubio-Tapia+2023+ACG+guidelines+celiac+disease"
+  },
+  "celiacIndia": {
+    "n": "Prevalence of celiac disease in northern India (Makharia et al., J Gastroenterol Hepatol 2011)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Makharia+2011+prevalence+celiac+disease+northern+India"
+  },
+  "lactase": {
+    "n": "Lactase persistence and lactose intolerance: genetics and diagnosis (review literature)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=lactase+persistence+lactose+intolerance+India"
+  },
+  "cpicG6pd": {
+    "n": "CPIC guideline for G6PD genotype and medication use (Gammal et al., Clin Pharmacol Ther 2023)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Gammal+CPIC+G6PD+guideline"
+  },
+  "acmgMthfr": {
+    "n": "ACMG practice resource: lack of evidence for MTHFR polymorphism testing (Hickey et al., Genet Med 2013; 2020 update)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=ACMG+MTHFR+polymorphism+testing+practice+guideline"
+  },
+  "food4me": {
+    "n": "Food4Me trial: DNA-based vs diet-based personalised nutrition advice (Celis-Morales et al., Int J Epidemiol 2017)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Celis-Morales+2017+Food4Me+personalised+nutrition"
   }
 }

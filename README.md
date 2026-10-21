@@ -19,7 +19,7 @@ It works offline after the first visit and can be installed to the home screen (
 
 ## Try it
 
-**Live demo:** _turn on GitHub Pages (Settings → Pages → Deploy from branch → `main` / root) and put the link here._
+**Live demo:** https://kashyapshilpi.github.io/genomics-for-everyone/ (open it on your phone and use "Add to Home Screen" to install it)
 
 To run it on your own computer:
 

@@ -1,0 +1,80 @@
+[
+  {
+    "gene": "HBB",
+    "condition": "β-thal / sickle / HbE",
+    "inheritance": "AR",
+    "note": "Different HBB variants can combine. β-thalassemia trait in one partner and HbS or HbE in the other can still cause significant disease in a child."
+  },
+  {
+    "gene": "HBA1/2",
+    "condition": "α-thalassemia",
+    "inheritance": "AR",
+    "note": "α-thalassemia depends on how many gene copies each partner lacks. Specialist counselling is needed."
+  },
+  {
+    "gene": "SMN1",
+    "condition": "Spinal muscular atrophy",
+    "inheritance": "AR",
+    "note": ""
+  },
+  {
+    "gene": "CFTR",
+    "condition": "Cystic fibrosis",
+    "inheritance": "AR",
+    "note": ""
+  },
+  {
+    "gene": "GJB2",
+    "condition": "Hearing loss",
+    "inheritance": "AR",
+    "note": ""
+  },
+  {
+    "gene": "PAH",
+    "condition": "Phenylketonuria",
+    "inheritance": "AR",
+    "note": ""
+  },
+  {
+    "gene": "ATP7B",
+    "condition": "Wilson disease",
+    "inheritance": "AR",
+    "note": ""
+  },
+  {
+    "gene": "HEXA",
+    "condition": "Tay–Sachs",
+    "inheritance": "AR",
+    "note": ""
+  },
+  {
+    "gene": "GALT",
+    "condition": "Galactosemia",
+    "inheritance": "AR",
+    "note": ""
+  },
+  {
+    "gene": "G6PD",
+    "condition": "G6PD deficiency",
+    "inheritance": "XL",
+    "note": ""
+  },
+  {
+    "gene": "DMD",
+    "condition": "Duchenne / Becker",
+    "inheritance": "XL",
+    "note": ""
+  },
+  {
+    "gene": "F8",
+    "condition": "Hemophilia A",
+    "inheritance": "XL",
+    "note": ""
+  },
+  {
+    "gene": "F9",
+    "condition": "Hemophilia B",
+    "inheritance": "XL",
+    "note": ""
+  }
+]

@@ -1,0 +1,424 @@
+{
+  "sections": {
+    "about": [
+      "sky",
+      "About you"
+    ],
+    "goal": [
+      "sky",
+      "Your goal"
+    ],
+    "family": [
+      "rose",
+      "Family history"
+    ],
+    "repro": [
+      "violet",
+      "Family planning"
+    ],
+    "preg": [
+      "violet",
+      "Pregnancy"
+    ],
+    "child": [
+      "sun",
+      "Your child"
+    ],
+    "adult": [
+      "teal",
+      "Your health"
+    ],
+    "end": [
+      "sky",
+      "Almost done"
+    ]
+  },
+  "questions": [
+    {
+      "id": "who",
+      "sec": "about",
+      "text": "Namaste! I'm Gia, your genetic test guide. I'll ask short questions one at a time, and you can skip any. Who is this for?",
+      "type": "single",
+      "opts": {
+        "self": "Myself",
+        "partner": "My partner",
+        "child": "My child",
+        "family": "A family member"
+      }
+    },
+    {
+      "id": "stage",
+      "sec": "about",
+      "text": "What's happening right now?",
+      "type": "single",
+      "opts": {
+        "marriage": "Planning marriage",
+        "preconception": "Planning a pregnancy",
+        "pregnant": "Pregnant now",
+        "newborn": "Newborn baby",
+        "child": "Child with a health concern",
+        "adult": "Healthy adult, curious about risks"
+      }
+    },
+    {
+      "id": "age",
+      "sec": "about",
+      "text": "Roughly what age group?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "0-1": "Under 1 month",
+        "1-4": "1 month – 4 yrs",
+        "5-12": "5–12",
+        "13-17": "13–17",
+        "18-29": "18–29",
+        "30-39": "30–39",
+        "40-59": "40–59",
+        "60+": "60+"
+      }
+    },
+    {
+      "id": "sex",
+      "sec": "about",
+      "text": "Biological sex of the person?",
+      "sub": "Only used for X-linked conditions and pregnancy questions.",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "female": "Female",
+        "male": "Male"
+      }
+    },
+    {
+      "id": "region",
+      "sec": "about",
+      "text": "Which state do you live in?",
+      "sub": "Screening programmes differ by state.",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "TG": "Telangana",
+        "AP": "Andhra Pradesh",
+        "MH": "Maharashtra",
+        "KA": "Karnataka",
+        "TN": "Tamil Nadu",
+        "WB": "West Bengal",
+        "GJ": "Gujarat",
+        "MP": "Madhya Pradesh",
+        "UP": "Uttar Pradesh",
+        "DL": "Delhi",
+        "OT": "Other"
+      }
+    },
+    {
+      "id": "goal",
+      "sec": "goal",
+      "text": "What do you most want from this?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "family": "Plan a healthy family",
+        "diagnosis": "Find a reason for symptoms",
+        "risk": "Know my future risks",
+        "meds": "Guidance on medicines",
+        "learn": "Just learning"
+      }
+    },
+    {
+      "id": "fh",
+      "sec": "family",
+      "text": "Has anyone in your family had any of these?",
+      "sub": "Pick all that apply.",
+      "type": "multi",
+      "none": "None / not sure",
+      "opts": {
+        "blood": "Thalassemia or sickle cell",
+        "xl": "Muscular dystrophy or haemophilia in male relatives",
+        "cancer": "Cancer",
+        "heart": "Early heart attack",
+        "highChol": "Very high cholesterol",
+        "suddenDeath": "Sudden death under 40",
+        "infantDeath": "Unexplained infant death",
+        "dd": "Developmental delay / ID",
+        "epi": "Epilepsy",
+        "rpl": "Repeated miscarriages",
+        "geneticDx": "A diagnosed genetic condition"
+      }
+    },
+    {
+      "id": "fhWho",
+      "sec": "family",
+      "when": "hasFamilyHistory",
+      "text": "Who was affected?",
+      "type": "multi",
+      "none": "Not sure",
+      "opts": {
+        "parent": "Parent",
+        "sibling": "Brother or sister",
+        "child": "My child",
+        "grand": "Grandparent",
+        "extended": "Aunt, uncle or cousin"
+      }
+    },
+    {
+      "id": "known",
+      "sec": "family",
+      "text": "Has a lab report already named a specific disease-causing variant in your family?",
+      "type": "yn"
+    },
+    {
+      "id": "knownType",
+      "sec": "family",
+      "when": "knownFamilyVariant",
+      "text": "What kind of condition was it?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "blood": "Blood disorder",
+        "neuro": "Nerve or muscle",
+        "cancer": "Cancer",
+        "heart": "Heart",
+        "metabolic": "Metabolic",
+        "other": "Other"
+      }
+    },
+    {
+      "id": "consang",
+      "sec": "repro",
+      "when": "isRepro",
+      "text": "Are you and your partner related by blood, like cousins?",
+      "sub": "This only matters because it changes the chance of recessive conditions.",
+      "type": "single",
+      "opts": {
+        "yes": "Yes",
+        "no": "No",
+        "skip": "Prefer not to say"
+      }
+    },
+    {
+      "id": "carrierStatus",
+      "sec": "repro",
+      "when": "isRepro",
+      "text": "Do you know your own thalassemia or sickle cell carrier status?",
+      "type": "single",
+      "opts": {
+        "carrier": "I'm a carrier",
+        "clear": "Tested, not a carrier",
+        "never": "Never tested"
+      }
+    },
+    {
+      "id": "partnerStatus",
+      "sec": "repro",
+      "when": "isRepro",
+      "text": "And your partner?",
+      "type": "single",
+      "opts": {
+        "carrier": "Partner is a carrier",
+        "clear": "Tested, not a carrier",
+        "never": "Not tested yet",
+        "unknown": "Don't know"
+      }
+    },
+    {
+      "id": "prevAffected",
+      "sec": "repro",
+      "when": "isRepro",
+      "text": "Has a previous child or pregnancy been affected by a genetic condition?",
+      "type": "yn"
+    },
+    {
+      "id": "weeks",
+      "sec": "preg",
+      "when": "isPregnant",
+      "text": "How many weeks pregnant?",
+      "sub": "Some tests can only be done in certain weeks.",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "lt10": "Under 10",
+        "w10": "10–13",
+        "w14": "14–20",
+        "gt20": "Over 20"
+      }
+    },
+    {
+      "id": "screen",
+      "sec": "preg",
+      "when": "isPregnant",
+      "text": "Any screening or scan results so far?",
+      "type": "single",
+      "opts": {
+        "none": "Not done yet",
+        "normal": "All normal",
+        "high": "High-chance screening result",
+        "scan": "Something seen on a scan"
+      }
+    },
+    {
+      "id": "emergency",
+      "sec": "child",
+      "when": "isKid",
+      "text": "First, a safety check. Is any of this happening right now?",
+      "type": "multi",
+      "none": "No, none of these",
+      "opts": {
+        "status": "Seizure lasting over 5 minutes",
+        "breath": "Trouble breathing / blue lips",
+        "unresp": "Very drowsy or hard to wake",
+        "feed": "Newborn not feeding"
+      }
+    },
+    {
+      "id": "birth",
+      "sec": "child",
+      "when": "isKid",
+      "text": "Anything special around birth?",
+      "type": "multi",
+      "none": "No",
+      "opts": {
+        "preterm": "Born early",
+        "nicu": "NICU stay",
+        "lbw": "Low birth weight"
+      }
+    },
+    {
+      "id": "child",
+      "sec": "child",
+      "when": "isKid",
+      "text": "What are the main concerns?",
+      "sub": "Pick all that apply.",
+      "type": "multi",
+      "none": "None of these",
+      "opts": {
+        "seizures": "Seizures",
+        "dd": "Developmental delay",
+        "speech": "Speech delay",
+        "regression": "Losing skills",
+        "autism": "Autism with other features",
+        "anomalies": "Birth differences",
+        "hearing": "Hearing loss",
+        "vision": "Vision problems",
+        "weakness": "Muscle weakness",
+        "infections": "Repeated serious infections",
+        "metabolic": "Possible metabolic disorder",
+        "growth": "Unusual growth",
+        "cardiac": "Heart condition"
+      }
+    },
+    {
+      "id": "onset",
+      "sec": "child",
+      "when": "childHasSeizures",
+      "text": "When did the seizures start?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "lt1": "Before 1 year",
+        "1to3": "1–3 years",
+        "4to12": "4–12 years",
+        "teen": "13+ years"
+      }
+    },
+    {
+      "id": "devBefore",
+      "sec": "child",
+      "when": "childHasSeizures",
+      "text": "Before the seizures began, was development normal?",
+      "type": "single",
+      "skip": true,
+      "opts": {
+        "yes": "Yes",
+        "no": "No",
+        "unsure": "Not sure"
+      }
+    },
+    {
+      "id": "childTests",
+      "sec": "child",
+      "when": "childWithConcerns",
+      "text": "Which tests have already been done?",
+      "type": "multi",
+      "none": "None yet",
+      "opts": {
+        "mri": "MRI / CT brain",
+        "eeg": "EEG",
+        "meta": "Metabolic tests",
+        "cma": "Microarray",
+        "panel": "Gene panel",
+        "exome": "Exome"
+      }
+    },
+    {
+      "id": "cancer",
+      "sec": "adult",
+      "when": "isAdult",
+      "text": "Have you been diagnosed with cancer yourself?",
+      "type": "yn"
+    },
+    {
+      "id": "cancerType",
+      "sec": "adult",
+      "when": "adultWithCancerHistory",
+      "text": "Which cancers, in you or your family?",
+      "type": "multi",
+      "none": "Not sure",
+      "opts": {
+        "breast": "Breast",
+        "ovarian": "Ovarian",
+        "colon": "Colon or uterine",
+        "pancreas": "Pancreatic",
+        "prostate": "Prostate",
+        "other": "Other"
+      }
+    },
+    {
+      "id": "cancerYoung",
+      "sec": "adult",
+      "when": "adultWithCancerHistory",
+      "text": "Was anyone diagnosed before age 50?",
+      "type": "yn"
+    },
+    {
+      "id": "ldl",
+      "sec": "adult",
+      "when": "isAdult",
+      "text": "Do you know your LDL cholesterol?",
+      "type": "single",
+      "opts": {
+        "veryhigh": "190 mg/dL or above",
+        "normal": "Normal or a bit high",
+        "unknown": "Don't know"
+      }
+    },
+    {
+      "id": "meds",
+      "sec": "adult",
+      "when": "isAdult",
+      "text": "Taking, or about to start, any of these medicines?",
+      "type": "multi",
+      "none": "None of these",
+      "opts": {
+        "clopidogrel": "Clopidogrel",
+        "carbamazepine": "Carbamazepine / oxcarbazepine",
+        "abacavir": "Abacavir",
+        "thiopurine": "Azathioprine",
+        "fluoro": "5-FU / capecitabine",
+        "warfarin": "Warfarin",
+        "antidep": "Antidepressants / opioids"
+      }
+    },
+    {
+      "id": "hcp",
+      "sec": "end",
+      "text": "Has a doctor already suggested genetic testing?",
+      "type": "yn"
+    },
+    {
+      "id": "prior",
+      "sec": "end",
+      "text": "Last one! Has any genetic test been done before?",
+      "type": "yn"
+    }
+  ]
+}

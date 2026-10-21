@@ -1,0 +1,25 @@
+name: Content correction
+description: Wrong, unclear or outdated text in a test, condition, gene or question.
+labels: ["content"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      placeholder: "Learn → Tests → NIPT → 'Cannot tell you'"
+    validations: { required: true }
+  - type: textarea
+    id: current
+    attributes:
+      label: Current text
+    validations: { required: true }
+  - type: textarea
+    id: suggested
+    attributes:
+      label: Suggested text
+    validations: { required: true }
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Required for any medical claim or number.

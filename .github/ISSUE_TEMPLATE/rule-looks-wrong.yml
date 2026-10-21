@@ -1,0 +1,32 @@
+name: Rule looks wrong
+description: A test was recommended (or not recommended) when it shouldn't have been.
+labels: ["clinical-review", "rules"]
+body:
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Scenario
+      description: The answers you gave in the Check tab (or describe the person).
+      placeholder: "Planning marriage, age 18–29, no family history, never tested..."
+    validations: { required: true }
+  - type: textarea
+    id: got
+    attributes:
+      label: What the app said
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: What it should say
+    validations: { required: true }
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Guideline, paper or programme that supports the change. Required.
+    validations: { required: true }
+  - type: input
+    id: role
+    attributes:
+      label: Your background (optional)
+      placeholder: "Genetic counsellor, clinical geneticist, student..."

@@ -98,5 +98,45 @@
   "easFH": {
     "n": "European Atherosclerosis Society consensus: familial hypercholesterolaemia is underdiagnosed and undertreated (Nordestgaard et al., Eur Heart J 2013)",
     "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Nordestgaard+2013+familial+hypercholesterolaemia+consensus+European+Heart+Journal"
+  },
+  "acogCma": {
+    "n": "ACOG Committee Opinion No. 682: Microarrays and next-generation sequencing technology in prenatal diagnosis (2016)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=ACOG+Committee+Opinion+682+microarrays+next-generation+sequencing+prenatal+diagnosis"
+  },
+  "ispdEs": {
+    "n": "ISPD 2022 position statement: use of genome-wide sequencing for prenatal diagnosis (Van den Veyver et al., Prenat Diagn 2022)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Van+den+Veyver+2022+ISPD+position+statement+genome-wide+sequencing+prenatal+diagnosis"
+  },
+  "smfmSoft": {
+    "n": "SMFM Consult Series #57: Evaluation and management of isolated soft ultrasound markers for aneuploidy (2021)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=SMFM+Consult+Series+57+isolated+soft+ultrasound+markers+aneuploidy"
+  },
+  "tif": {
+    "n": "TIF Guidelines for the management of transfusion dependent thalassaemia, 4th edition (Cappellini et al., 2021)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Cappellini+2021+TIF+guidelines+transfusion+dependent+thalassaemia"
+  },
+  "grSma": {
+    "n": "GeneReviews: Spinal muscular atrophy",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=GeneReviews+spinal+muscular+atrophy"
+  },
+  "grDmd": {
+    "n": "GeneReviews: Dystrophinopathies",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=GeneReviews+dystrophinopathies"
+  },
+  "grAlphaThal": {
+    "n": "GeneReviews: Alpha-thalassemia",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=GeneReviews+alpha-thalassemia"
+  },
+  "rnaSeq": {
+    "n": "RNA sequencing improves diagnosis in unsolved rare muscle disease (Cummings et al., Sci Transl Med 2017)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Cummings+2017+improving+genetic+diagnosis+Mendelian+disease+transcriptome+sequencing"
+  },
+  "pkuAcmg": {
+    "n": "ACMG practice guideline: phenylalanine hydroxylase deficiency diagnosis and management (Vockley et al., Genet Med 2014)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Vockley+2014+phenylalanine+hydroxylase+deficiency+diagnosis+management+guideline"
+  },
+  "galactosemia": {
+    "n": "International clinical guideline for the management of classical galactosemia (Welling et al., J Inherit Metab Dis 2017)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Welling+2017+international+clinical+guideline+classical+galactosemia"
   }
 }

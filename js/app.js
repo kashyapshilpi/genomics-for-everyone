@@ -38,26 +38,40 @@ const WHEN={
  childWithConcerns:a=>isKid(a)&&(a.child||[]).length>0,
  adultWithCancerHistory:a=>a.stage==="adult"&&hasCancer(a),
  isAdultOrKid:a=>a.stage==="adult"||isKid(a),
- isAdultOrRepro:a=>a.stage==="adult"||isRepro(a)
+ isAdultOrRepro:a=>a.stage==="adult"||isRepro(a),
+ pregnantWithResults:a=>a.stage==="pregnant"&&!!a.screen&&a.screen!=="none",
+ hadMarker:a=>(a.pregTests||[]).includes("dm"),
+ hadNipt:a=>(a.pregTests||[]).includes("nipt"),
+ hadScan:a=>(a.pregTests||[]).includes("scan"),
+ hadInvasive:a=>(a.pregTests||[]).includes("invasive"),
+ hadHbTest:a=>isRepro(a)&&["carrier","clear"].includes(a.carrierStatus),
+ childHadCma:a=>(a.childTests||[]).includes("cma"),
+ childHadExome:a=>(a.childTests||[]).includes("exome")
 };
 // Named conditions used by "when" in data/diet.json. A food tip is shown only if its condition is true.
 const DIET_WHEN={
  always:()=>true,
  womanPlanningPregnancy:a=>isRepro(a)&&a.sex!=="male",
  thalOrStubbornAnaemia:a=>(a.fh||[]).includes("blood")||a.carrierStatus==="carrier"||a.anaemia==="ironNoHelp",
- celiacPossible:a=>(a.food||[]).includes("wheat")||(a.fh||[]).includes("celiac"),
+ celiacPossible:a=>((a.food||[]).includes("wheat")||(a.fh||[]).includes("celiac"))&&!(a.diagnosed||[]).includes("celiacDx"),
  milkTrouble:a=>(a.food||[]).includes("milk"),
  favaTrouble:a=>(a.food||[]).includes("fava"),
  highCholesterol:a=>a.ldl==="veryhigh"||(a.fh||[]).includes("highChol"),
- dnaDiet:a=>!!a.dnaDiet
+ dnaDiet:a=>!!a.dnaDiet,
+ dxPku:a=>(a.diagnosed||[]).includes("pku"),
+ dxGalactosemia:a=>(a.diagnosed||[]).includes("galactosemia"),
+ dxCeliac:a=>(a.diagnosed||[]).includes("celiacDx"),
+ dxFh:a=>(a.diagnosed||[]).includes("fhDx"),
+ dxG6pd:a=>(a.diagnosed||[]).includes("g6pdDx"),
+ dxThalMajor:a=>(a.diagnosed||[]).includes("thalMajor")
 };
 const dietTips=a=>{const l=DIET.filter(t=>DIET_WHEN[t.when](a));return l.length>1?[...l.filter(t=>t.when!=="always"),...l.filter(t=>t.when==="always")]:l;};
 
 /* ===================== ENGINE ===================== */
 const RANK={relevant:0,consider:1,notroutine:2};
 function recommend(a){
-  const out=new Map(), cons=[];
-  const add=(id,tier,why,first)=>{let r=out.get(id);if(!r){r={id,tier,why:{relevant:[],consider:[],notroutine:[]},first:false};out.set(id,r);}if(RANK[tier]<RANK[r.tier])r.tier=tier;if(why&&!r.why[tier].includes(why))r.why[tier].push(why);if(first)r.first=true;};
+  const out=new Map(), cons=[], urgent=new Set(); // urgent: shown before other "start here" items
+  const add=(id,tier,why,first)=>{let r=out.get(id);if(!r){r={id,tier,why:{relevant:[],consider:[],notroutine:[]},first:false};out.set(id,r);}if(RANK[tier]<RANK[r.tier])r.tier=tier;if(why&&!r.why[tier].includes(why))r.why[tier][urgent.has(id)?"unshift":"push"](why);if(first)r.first=true;};
   const fh=new Set(a.fh||[]),cc=new Set(a.child||[]),meds=new Set(a.meds||[]),ct=new Set(a.childTests||[]),ctype=new Set(a.cancerType||[]);
   const s=a.stage,repro=isRepro(a);
   const stageTxt={marriage:"You're planning marriage.",preconception:"You're planning a pregnancy.",pregnant:"You're pregnant. Some tests are time-limited, so talk to your obstetrician soon.",newborn:"This is about a newborn baby.",child:"This is about a child with a health or developmental concern.",adult:"You're a healthy adult curious about inherited risks."};
@@ -99,7 +113,7 @@ function recommend(a){
     add("hb","relevant","If not done yet, hemoglobin screening early in pregnancy is time-sensitive.");
     if(a.screen==="high"){add("invasive","relevant","After a high-chance screening result, a diagnostic test gives a definite answer.");add("gc","relevant","Counselling helps you understand the result before deciding.");add("nipt","consider","NIPT may be offered, but it is still a screening test; diagnostic testing is needed for certainty.");}
     else if(a.screen==="scan"){add("invasive","relevant","When something is seen on a scan, diagnostic testing with microarray is often offered.");add("gc","relevant","A fetal medicine specialist and counsellor can explain the finding.");}
-    else add("nipt","consider","A more sensitive screening option for trisomies 21, 18 and 13. A high-chance result needs a diagnostic test.");
+    else if(!a.niptResult)add("nipt","consider","A more sensitive screening option for trisomies 21, 18 and 13. A high-chance result needs a diagnostic test.");
     if(a.known||a.prevAffected)add("invasive","relevant","A family condition is known, so diagnostic testing for it can be planned with a fetal medicine specialist.");
     else add("invasive","consider","Offered after a high-chance screen, a scan finding, or a known family condition.");
     if(a.weeks==="gt20")cons.push("You're past 20 weeks. Some options are time-limited, so please speak to your obstetrician soon.");
@@ -156,6 +170,45 @@ function recommend(a){
     add("wgs","notroutine","Not a general health check for healthy adults.");
     if(fh.has("blood"))add("hb","consider","Knowing your carrier status helps with family planning and informs relatives.");
   }
+  /* ---- results the person already has ---- */
+  if(s==="pregnant"){
+    const pt=new Set(a.pregTests||[]),scanBad=["structural","nt"].includes(a.scanResult);
+    if(a.niptResult==="high"||a.dmResult==="high")add("invasive","relevant","A high-chance screening result needs a diagnostic test (CVS or amniocentesis) before any decision.");
+    if(a.dmResult==="high"&&!pt.has("nipt"))add("nipt","consider","After a high-chance marker test, NIPT can be offered as a more accurate screen, but a diagnostic test gives the definite answer.");
+    if(a.niptResult==="nocall"){add("gc","relevant","A failed NIPT ('no call') can itself go with a higher chance of some chromosome conditions. Discuss repeating it or a diagnostic test.");add("invasive","consider","Diagnostic testing may be offered after a failed NIPT.");}
+    if(scanBad){
+      urgent.add("invasive");
+      add("invasive","relevant",(a.niptResult==="low"?"A low-risk NIPT mainly covers trisomies 21, 18 and 13. It doesn't rule out other chromosome changes or single-gene conditions that can cause what the scan shows. ":"")+"When the scan shows a structural problem or thick NT, a diagnostic test with chromosomal microarray is recommended.",true);
+      if(a.niptResult==="low")cons.push("A negative NIPT does not explain a problem seen on scan. Further testing is about the scan finding, not about the NIPT.");
+      add("gc","relevant","A fetal medicine specialist and genetic counsellor can explain the scan finding and testing options.");
+      if(a.invasiveResult==="normal")add("pes","relevant","Microarray is normal but the scan shows a significant problem. Prenatal exome can find a single-gene cause in some of these pregnancies.");
+      else add("pes","consider","If microarray from CVS or amniocentesis is normal, prenatal exome may be the next step.");
+    }
+    if(a.scanResult==="soft"&&a.niptResult!=="high"&&a.dmResult!=="high")cons.push("A single soft marker with low-chance screening usually doesn't need an invasive test. Your doctor may arrange a follow-up scan.");
+    if(a.scanResult==="growth"){add("gc","relevant","A baby who is much smaller than expected, especially early, can sometimes have a genetic cause. A fetal medicine review comes first.");add("invasive","consider","May be offered depending on the scan findings and timing.");}
+    if(a.invasiveResult==="abnormal")add("gc","relevant","A change was found in the baby's test. A genetic counsellor and fetal medicine specialist can explain what it means and your options.",true);
+    if(a.invasiveResult==="vus")add("gc","relevant","An uncertain result often becomes clearer after testing both parents. Ask whether parental testing is possible.",true);
+  }
+  if(a.hbResult){
+    if(a.hbResult==="borderline")urgent.add("carrier");
+    if(a.hbResult==="borderline")add("carrier","relevant","Borderline HbA2 can hide a mild β-thalassemia trait and can be lowered by iron deficiency. DNA testing of the HBB gene gives a clear answer.",true);
+    if(["trait","hbs","hbe"].includes(a.hbResult))add("partner","relevant","Your report shows a hemoglobin trait. Your partner's HPLC result is the key next step.",true);
+    if(a.hbResult==="lowMcv"){add("mlpa","consider","Small red cells with normal HbA2 can be iron deficiency or α-thalassemia trait. After checking ferritin, α-globin deletion testing (gap-PCR or MLPA) can tell.");cons.push("Check ferritin first. Iron deficiency alone can cause small red cells.");}
+  }
+  if(s==="child"){
+    if(cc.has("weakness"))add("mlpa","relevant","For a weak or floppy child, the first genetic tests are usually SMN1 copy counting for SMA and DMD deletion testing for Duchenne. These are done by MLPA or a similar method.",true);
+    if(a.cmaResult==="vus")add("gc","relevant","An uncertain microarray result is often clarified by testing both parents.");
+    if(a.cmaResult==="abnormal")add("gc","relevant","Microarray found a likely cause. A geneticist can explain it, check if relatives need testing, and plan follow-up care.",true);
+    if(a.exomeResult==="negative"){add("wgs","consider","Genome sequencing can find changes an exome misses.");add("rnaseq","consider","If exome and genome are negative, RNA testing in a specialist or research centre may explain some cases.");}
+    if(a.exomeResult==="vus")add("gc","relevant","An uncertain exome result is often clarified by testing parents and by asking the lab to reanalyse it later.");
+    if(a.exomeResult==="positive"){add("gc","relevant","A diagnosis was found. A geneticist can explain it, plan care with the right specialists, and offer testing to relatives.",true);add("familial","consider","Relatives, and future pregnancies, can be tested for the exact change found.");}
+  }
+  if(repro&&fh.has("xl")&&a.sex==="female")add("mlpa","consider","Most Duchenne cases are caused by deletions or duplications in the DMD gene, which MLPA detects. Testing works best once the affected relative's change is known.");
+  if(repro&&(a.consang==="yes"||fh.has("infantDeath")))add("mlpa","consider","SMA carrier testing counts copies of the SMN1 gene, usually by MLPA or a similar method.");
+  const dx=new Set(a.diagnosed||[]);
+  if(dx.size)cons.push("You told us about a confirmed diagnosis. See the Food tab for diet guidance specific to it, and keep following your specialist's plan.");
+  if(dx.has("fhDx"))add("familial","relevant","Familial hypercholesterolaemia runs in families. Parents, brothers, sisters and children should get a cholesterol test and, if the gene change is known, testing for it.");
+
   /* ---- age ---- */
   const age35=["35-39","40-59","60+"].includes(a.age);
   if(s==="pregnant"&&age35&&!["high","scan"].includes(a.screen)){
@@ -186,7 +239,7 @@ function recommend(a){
   if(fh.has("geneticDx")&&!a.known)add("gc","relevant","A relative has a genetic diagnosis. A counsellor can check if targeted testing is possible.");
   if(!out.has("gc"))add("gc","consider","Helpful whenever results could affect you or your relatives.");
   const list=[...out.values()].map(r=>({...r,reasons:r.why[r.tier].length?r.why[r.tier]:r.why.relevant.concat(r.why.consider)}));
-  list.sort((x,y)=>RANK[x.tier]-RANK[y.tier]||(y.first-x.first));
+  list.sort((x,y)=>RANK[x.tier]-RANK[y.tier]||(urgent.has(y.id)-urgent.has(x.id))||(y.first-x.first));
   return {list,cons};
 }
 

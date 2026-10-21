@@ -138,5 +138,33 @@
   "galactosemia": {
     "n": "International clinical guideline for the management of classical galactosemia (Welling et al., J Inherit Metab Dis 2017)",
     "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Welling+2017+international+clinical+guideline+classical+galactosemia"
+  },
+  "adaSoc": {
+    "n": "American Diabetes Association: Standards of Care in Diabetes, section 2 – Diagnosis and classification (updated yearly)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Standards+of+Care+in+Diabetes+Diagnosis+and+Classification+of+Diabetes+American+Diabetes+Association"
+  },
+  "npncd": {
+    "n": "National Programme for Prevention and Control of Non-Communicable Diseases (NP-NCD), Ministry of Health, India",
+    "u": "https://nhm.gov.in/"
+  },
+  "laiLipid": {
+    "n": "Lipid Association of India expert consensus on management of dyslipidaemia (Puri et al.)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Lipid+Association+of+India+expert+consensus+statement+dyslipidemia+Puri"
+  },
+  "whoFerritin": {
+    "n": "WHO guideline on use of ferritin concentrations to assess iron status in individuals and populations (2020)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=WHO+guideline+use+of+ferritin+concentrations+to+assess+iron+status+2020"
+  },
+  "niceB12": {
+    "n": "NICE guideline NG239: Vitamin B12 deficiency in over 16s (2024)",
+    "u": "https://www.nice.org.uk/guidance/ng239"
+  },
+  "tmsNbs": {
+    "n": "Inborn errors of metabolism: biochemical investigations (GeneReviews and metabolic literature)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=inborn+errors+of+metabolism+first-line+biochemical+investigations+tandem+mass+spectrometry+urine+organic+acids+review"
+  },
+  "mohfwGdm": {
+    "n": "MoHFW, Government of India: Diagnosis and management of gestational diabetes mellitus – technical and operational guidelines (2018)",
+    "u": "https://nhm.gov.in/"
   }
 }

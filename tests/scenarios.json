@@ -1,0 +1,517 @@
+[
+  {
+    "name": "Couple planning marriage, never tested: hemoglobin test first; exome/genome not for screening",
+    "answers": {
+      "stage": "marriage",
+      "age": "18-29",
+      "fh": [],
+      "consang": "no",
+      "carrierStatus": "never",
+      "partnerStatus": "never",
+      "prevAffected": false
+    },
+    "expect": {
+      "first": "hb",
+      "relevant": [
+        "hb"
+      ],
+      "consider": [
+        "carrier",
+        "ecs"
+      ],
+      "notroutine": [
+        "wes",
+        "wgs"
+      ],
+      "absent": [
+        "prs"
+      ]
+    }
+  },
+  {
+    "name": "Both partners are carriers: counselling, DNA test of each variant, prenatal diagnosis option",
+    "answers": {
+      "stage": "preconception",
+      "carrierStatus": "carrier",
+      "partnerStatus": "carrier"
+    },
+    "expect": {
+      "relevant": [
+        "partner",
+        "gc",
+        "carrier"
+      ],
+      "consider": [
+        "invasive"
+      ]
+    }
+  },
+  {
+    "name": "Related partners: targeted carrier screening and SMA copy-number test",
+    "answers": {
+      "stage": "marriage",
+      "consang": "yes",
+      "carrierStatus": "never",
+      "partnerStatus": "never"
+    },
+    "expect": {
+      "relevant": [
+        "carrier",
+        "gc"
+      ],
+      "consider": [
+        "mlpa",
+        "ecs"
+      ],
+      "note": [
+        "Related partners"
+      ]
+    }
+  },
+  {
+    "name": "Woman with affected male relatives (X-linked): carrier testing and DMD deletion test",
+    "answers": {
+      "stage": "preconception",
+      "sex": "female",
+      "fh": [
+        "xl"
+      ],
+      "carrierStatus": "never",
+      "partnerStatus": "never"
+    },
+    "expect": {
+      "relevant": [
+        "carrier",
+        "gc"
+      ],
+      "consider": [
+        "mlpa"
+      ]
+    }
+  },
+  {
+    "name": "Borderline HbA2: HBB DNA test first, ferritin to interpret",
+    "answers": {
+      "stage": "marriage",
+      "carrierStatus": "clear",
+      "partnerStatus": "never",
+      "hbResult": "borderline"
+    },
+    "expect": {
+      "first": "carrier",
+      "relevant": [
+        "carrier"
+      ],
+      "consider": [
+        "ferritin"
+      ]
+    }
+  },
+  {
+    "name": "Small red cells with normal HbA2: ferritin first, then alpha-globin deletion test",
+    "answers": {
+      "stage": "marriage",
+      "carrierStatus": "clear",
+      "partnerStatus": "never",
+      "hbResult": "lowMcv"
+    },
+    "expect": {
+      "first": "ferritin",
+      "consider": [
+        "mlpa"
+      ]
+    }
+  },
+  {
+    "name": "Pregnant at 35+, no results yet: NIPT worth discussing, GDM test",
+    "answers": {
+      "stage": "pregnant",
+      "age": "35-39",
+      "screen": "none",
+      "carrierStatus": "never",
+      "partnerStatus": "never"
+    },
+    "expect": {
+      "relevant": [
+        "prenatal",
+        "nipt",
+        "glucose",
+        "hb"
+      ],
+      "note": [
+        "35 or older"
+      ]
+    }
+  },
+  {
+    "name": "Pregnant, high-chance screening: diagnostic test, rapid test while microarray runs",
+    "answers": {
+      "stage": "pregnant",
+      "screen": "high",
+      "pregTests": [
+        "dm"
+      ],
+      "dmResult": "high"
+    },
+    "expect": {
+      "relevant": [
+        "invasive",
+        "gc"
+      ],
+      "consider": [
+        "nipt",
+        "rapid"
+      ]
+    }
+  },
+  {
+    "name": "NIPT negative but structural anomaly on scan: CVS/amnio with microarray first",
+    "answers": {
+      "stage": "pregnant",
+      "screen": "scan",
+      "pregTests": [
+        "nipt",
+        "scan"
+      ],
+      "niptResult": "low",
+      "scanResult": "structural"
+    },
+    "expect": {
+      "first": "invasive",
+      "relevant": [
+        "invasive",
+        "gc"
+      ],
+      "consider": [
+        "pes",
+        "rapid"
+      ],
+      "absent": [
+        "nipt"
+      ],
+      "note": [
+        "negative NIPT does not explain"
+      ]
+    }
+  },
+  {
+    "name": "Scan anomaly with normal microarray: prenatal exome becomes worth discussing",
+    "answers": {
+      "stage": "pregnant",
+      "screen": "scan",
+      "pregTests": [
+        "nipt",
+        "scan",
+        "invasive"
+      ],
+      "niptResult": "low",
+      "scanResult": "structural",
+      "invasiveResult": "normal"
+    },
+    "expect": {
+      "first": "invasive",
+      "relevant": [
+        "invasive",
+        "pes"
+      ]
+    }
+  },
+  {
+    "name": "NIPT failed (no call): counselling, diagnostic test as an option",
+    "answers": {
+      "stage": "pregnant",
+      "screen": "normal",
+      "pregTests": [
+        "nipt"
+      ],
+      "niptResult": "nocall"
+    },
+    "expect": {
+      "relevant": [
+        "gc"
+      ],
+      "consider": [
+        "invasive"
+      ]
+    }
+  },
+  {
+    "name": "Isolated soft marker with low-risk NIPT: no automatic invasive test, NIPT not repeated",
+    "answers": {
+      "stage": "pregnant",
+      "screen": "normal",
+      "pregTests": [
+        "nipt",
+        "scan"
+      ],
+      "niptResult": "low",
+      "scanResult": "soft"
+    },
+    "expect": {
+      "consider": [
+        "invasive"
+      ],
+      "absent": [
+        "nipt"
+      ],
+      "note": [
+        "soft marker"
+      ]
+    }
+  },
+  {
+    "name": "Newborn: newborn screening first; sequencing not routine",
+    "answers": {
+      "stage": "newborn"
+    },
+    "expect": {
+      "first": "nbs",
+      "relevant": [
+        "nbs"
+      ],
+      "notroutine": [
+        "wes",
+        "wgs"
+      ]
+    }
+  },
+  {
+    "name": "Child with early seizures and delay: epilepsy panel, exome and microarray",
+    "answers": {
+      "stage": "child",
+      "child": [
+        "seizures",
+        "dd"
+      ],
+      "onset": "lt1",
+      "devBefore": "no"
+    },
+    "expect": {
+      "relevant": [
+        "panel",
+        "wes",
+        "cma",
+        "gc"
+      ],
+      "consider": [
+        "metab"
+      ]
+    }
+  },
+  {
+    "name": "Child with delay, microarray already normal: exome next, no repeat microarray",
+    "answers": {
+      "stage": "child",
+      "child": [
+        "dd"
+      ],
+      "childTests": [
+        "cma"
+      ],
+      "cmaResult": "normal"
+    },
+    "expect": {
+      "relevant": [
+        "wes"
+      ],
+      "notroutine": [
+        "cma"
+      ]
+    }
+  },
+  {
+    "name": "Weak child: CK first, then SMN1/DMD deletion test",
+    "answers": {
+      "stage": "child",
+      "child": [
+        "weakness"
+      ]
+    },
+    "expect": {
+      "first": "ck",
+      "relevant": [
+        "ck",
+        "mlpa"
+      ]
+    }
+  },
+  {
+    "name": "Child, exome negative: genome, reanalysis, RNA in specialist centres",
+    "answers": {
+      "stage": "child",
+      "child": [
+        "dd"
+      ],
+      "childTests": [
+        "exome"
+      ],
+      "exomeResult": "negative"
+    },
+    "expect": {
+      "consider": [
+        "wgs",
+        "rnaseq"
+      ]
+    }
+  },
+  {
+    "name": "Suspected metabolic disorder: biochemical tests first",
+    "answers": {
+      "stage": "child",
+      "child": [
+        "metabolic"
+      ]
+    },
+    "expect": {
+      "first": "metab",
+      "relevant": [
+        "metab"
+      ]
+    }
+  },
+  {
+    "name": "Healthy adult 30+: blood sugar and lipid profile; insulin and exome not routine; no PRS",
+    "answers": {
+      "stage": "adult",
+      "age": "30-34",
+      "fh": [],
+      "ldl": "unknown",
+      "meds": []
+    },
+    "expect": {
+      "relevant": [
+        "glucose",
+        "lipid"
+      ],
+      "notroutine": [
+        "insulin",
+        "wes",
+        "wgs"
+      ],
+      "absent": [
+        "prs"
+      ]
+    }
+  },
+  {
+    "name": "Adult with LDL >= 190: familial hypercholesterolaemia testing",
+    "answers": {
+      "stage": "adult",
+      "age": "40-59",
+      "ldl": "veryhigh"
+    },
+    "expect": {
+      "relevant": [
+        "fh"
+      ],
+      "absent": [
+        "lipid"
+      ]
+    }
+  },
+  {
+    "name": "Adult with own young-onset cancer: hereditary cancer panel",
+    "answers": {
+      "stage": "adult",
+      "cancer": true,
+      "cancerType": [
+        "breast"
+      ],
+      "cancerYoung": true
+    },
+    "expect": {
+      "relevant": [
+        "hcp"
+      ]
+    }
+  },
+  {
+    "name": "Adult starting carbamazepine: HLA-B*15:02 pharmacogenomic test",
+    "answers": {
+      "stage": "adult",
+      "meds": [
+        "carbamazepine"
+      ]
+    },
+    "expect": {
+      "relevant": [
+        "pgx"
+      ]
+    }
+  },
+  {
+    "name": "Wheat symptoms: celiac blood test first, keep eating wheat",
+    "answers": {
+      "stage": "adult",
+      "food": [
+        "wheat"
+      ]
+    },
+    "expect": {
+      "first": "celiac",
+      "relevant": [
+        "celiac"
+      ],
+      "diet": [
+        "celiacGF"
+      ],
+      "note": [
+        "Don't stop eating wheat"
+      ]
+    }
+  },
+  {
+    "name": "Anaemia not fixed by iron: ferritin, hemoglobin test, B12, celiac",
+    "answers": {
+      "stage": "adult",
+      "anaemia": "ironNoHelp"
+    },
+    "expect": {
+      "relevant": [
+        "ferritin",
+        "hb"
+      ],
+      "consider": [
+        "b12",
+        "celiac"
+      ],
+      "diet": [
+        "thalIron"
+      ]
+    }
+  },
+  {
+    "name": "Confirmed PKU and FH: condition diet tips, family testing for FH",
+    "answers": {
+      "stage": "adult",
+      "diagnosed": [
+        "pku",
+        "fhDx"
+      ]
+    },
+    "expect": {
+      "relevant": [
+        "familial",
+        "lipid"
+      ],
+      "diet": [
+        "pkuDiet",
+        "fhDxDiet"
+      ]
+    }
+  },
+  {
+    "name": "Known family variant: test for that exact change first",
+    "answers": {
+      "stage": "adult",
+      "known": true,
+      "knownType": "neuro"
+    },
+    "expect": {
+      "relevant": [
+        "familial",
+        "gc"
+      ]
+    }
+  }
+]

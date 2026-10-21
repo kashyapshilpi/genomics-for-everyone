@@ -304,23 +304,6 @@
     ]
   },
   {
-    "id": "prs",
-    "name": "Polygenic risk score",
-    "full": "Many common variants combined for one disease",
-    "cat": "Personalized",
-    "type": "Risk estimate",
-    "purpose": "Estimates relative inherited susceptibility to diseases like type 2 diabetes.",
-    "who": "Education and research; not a routine clinical test in India yet.",
-    "detects": "Where your score sits versus a reference population.",
-    "limits": "Not a diagnosis. Mostly built on European data and may be less accurate for South Asians.",
-    "gc": "Helpful for understanding results.",
-    "india": "Must be compared against a South Asian reference.",
-    "ask": "",
-    "refs": [
-      "pgs"
-    ]
-  },
-  {
     "id": "celiac",
     "name": "Celiac disease blood test",
     "full": "tTG-IgA antibody with total IgA (HLA-DQ2/DQ8 gene test only in special cases)",
@@ -443,6 +426,164 @@
     "ask": "After a negative exome, is RNA testing or reanalysis an option for us?",
     "refs": [
       "rnaSeq"
+    ]
+  },
+  {
+    "id": "glucose",
+    "name": "Blood sugar (fasting glucose / HbA1c)",
+    "full": "Fasting plasma glucose and HbA1c (3-month average); in pregnancy, a 75 g oral glucose test",
+    "cat": "Blood tests",
+    "type": "Blood test",
+    "purpose": "Finds diabetes and prediabetes early.",
+    "who": "Adults, especially from 30 years or with diabetes in the family; every pregnant woman.",
+    "detects": "Diabetes and prediabetes.",
+    "limits": "HbA1c can read wrongly in anaemia and some hemoglobin variants (e.g. HbS, HbE, thalassemia trait). Then glucose tests are used instead.",
+    "gc": "Not needed.",
+    "india": "India's national NCD programme screens adults aged 30 and above for diabetes.",
+    "ask": "How often should I check my blood sugar, and is HbA1c reliable for me?",
+    "refs": [
+      "adaSoc",
+      "npncd",
+      "mohfwGdm"
+    ]
+  },
+  {
+    "id": "insulin",
+    "name": "Fasting insulin / HOMA-IR",
+    "full": "Fasting insulin level, sometimes combined with glucose as HOMA-IR",
+    "cat": "Blood tests",
+    "type": "Blood test",
+    "purpose": "Estimates insulin resistance.",
+    "who": "Mainly research or specialist use.",
+    "detects": "Higher insulin levels suggest insulin resistance.",
+    "limits": "There is no agreed normal range, labs differ, and it isn't used to diagnose or screen for diabetes. Fasting glucose and HbA1c are the standard tests.",
+    "gc": "Not needed.",
+    "india": "Often included in wellness packages; ask whether it will change anything.",
+    "ask": "Would fasting insulin change my treatment, or are glucose and HbA1c enough?",
+    "refs": [
+      "adaSoc"
+    ]
+  },
+  {
+    "id": "lipid",
+    "name": "Lipid profile",
+    "full": "Total cholesterol, LDL, HDL, triglycerides",
+    "cat": "Blood tests",
+    "type": "Blood test",
+    "purpose": "Checks cholesterol and fats that affect heart risk.",
+    "who": "Adults, and earlier in people with early heart disease or very high cholesterol in the family. Children of parents with familial hypercholesterolaemia.",
+    "detects": "High LDL, low HDL, high triglycerides. Very high LDL can point to familial hypercholesterolaemia.",
+    "limits": "One result is a snapshot. Your doctor reads it with blood pressure, sugar, smoking and family history.",
+    "gc": "Not needed.",
+    "india": "Widely available and low-cost.",
+    "ask": "Is my LDL high enough to think about familial hypercholesterolaemia?",
+    "refs": [
+      "laiLipid",
+      "easFH"
+    ]
+  },
+  {
+    "id": "ferritin",
+    "name": "Iron studies (ferritin)",
+    "full": "Serum ferritin, sometimes with serum iron and TIBC",
+    "cat": "Blood tests",
+    "type": "Blood test",
+    "purpose": "Shows whether low hemoglobin is due to low iron.",
+    "who": "Anyone with anaemia, before taking iron long-term, and people with thalassemia trait or on transfusions.",
+    "detects": "Low iron stores, or iron overload.",
+    "limits": "Ferritin rises with infection and inflammation, so it can look normal even when iron is low.",
+    "gc": "Not needed.",
+    "india": "Widely available; helps tell iron deficiency from thalassemia trait.",
+    "ask": "Is my anaemia from low iron, or should we check for thalassemia trait?",
+    "refs": [
+      "whoFerritin"
+    ]
+  },
+  {
+    "id": "b12",
+    "name": "Vitamin B12 (and folate)",
+    "full": "Serum B12, sometimes with folate",
+    "cat": "Blood tests",
+    "type": "Blood test",
+    "purpose": "Finds B12 or folate deficiency, which can cause anaemia and nerve problems.",
+    "who": "People with anaemia that iron doesn't fix, tingling or numbness, and long-term vegetarians or people on metformin.",
+    "detects": "Low B12 or folate.",
+    "limits": "Borderline results are common and may need extra tests.",
+    "gc": "Not needed.",
+    "india": "B12 deficiency is common in India, especially with vegetarian diets.",
+    "ask": "Could B12 or folate be part of my anaemia?",
+    "refs": [
+      "niceB12"
+    ]
+  },
+  {
+    "id": "tsh",
+    "name": "Thyroid test (TSH)",
+    "full": "Thyroid-stimulating hormone, with free T4 if abnormal",
+    "cat": "Blood tests",
+    "type": "Blood test",
+    "purpose": "Checks for an underactive or overactive thyroid.",
+    "who": "People with tiredness, weight change or slow growth; newborns as part of newborn screening.",
+    "detects": "Hypothyroidism and hyperthyroidism.",
+    "limits": "Results change with illness and some medicines; abnormal results are usually repeated.",
+    "gc": "Not needed.",
+    "india": "Congenital hypothyroidism is in most newborn screening panels.",
+    "ask": "Could a thyroid problem explain these symptoms?",
+    "refs": [
+      "nhm"
+    ]
+  },
+  {
+    "id": "ck",
+    "name": "Creatine kinase (CK)",
+    "full": "Muscle enzyme blood test",
+    "cat": "Blood tests",
+    "type": "Blood test",
+    "purpose": "Shows muscle damage. Very high levels point to muscular dystrophy.",
+    "who": "Children or adults with muscle weakness, frequent falls, or calf enlargement.",
+    "detects": "Raised CK. In Duchenne it is usually very high from early childhood.",
+    "limits": "Normal in SMA. Exercise and injections can raise it briefly. It doesn't name the condition.",
+    "gc": "Not needed for the test itself.",
+    "india": "Low-cost and widely available.",
+    "ask": "Should CK be checked before genetic testing for weakness?",
+    "refs": [
+      "grDmd"
+    ]
+  },
+  {
+    "id": "metab",
+    "name": "Metabolic screening",
+    "full": "Blood ammonia, lactate, amino acids (TMS) and urine organic acids",
+    "cat": "Blood tests",
+    "type": "Biochemical tests",
+    "purpose": "Looks for inborn errors of metabolism.",
+    "who": "Babies and children with poor feeding, vomiting, unusual smell, low sugar, regression or unexplained seizures.",
+    "detects": "Patterns that point to specific metabolic disorders.",
+    "limits": "Samples are best taken when the child is unwell. Genetic testing usually confirms the diagnosis.",
+    "gc": "Yes, if a disorder is found.",
+    "india": "Available in larger hospitals and specialist labs.",
+    "ask": "Should metabolic tests be done now, while my child is unwell?",
+    "refs": [
+      "tmsNbs",
+      "gr"
+    ]
+  },
+  {
+    "id": "rapid",
+    "name": "Rapid chromosome test (QF-PCR / FISH)",
+    "full": "Quick check for the common trisomies (21, 18, 13) and sex chromosomes",
+    "cat": "Pregnancy",
+    "type": "Cytogenetic",
+    "purpose": "Gives a fast answer for the commonest chromosome conditions while microarray is running.",
+    "who": "Pregnancies having CVS or amniocentesis; also newborns with suspected trisomy. FISH can also look for specific deletions such as 22q11.",
+    "detects": "Trisomies 21, 18, 13 and sex chromosome changes; targeted deletions with FISH.",
+    "limits": "Only checks the chromosomes or regions it targets. A normal result does not rule out other changes; microarray is still needed.",
+    "gc": "Yes.",
+    "india": "Offered by most prenatal genetics labs alongside karyotype or microarray.",
+    "ask": "Will the lab run a rapid test first, and when will the full microarray result come?",
+    "refs": [
+      "acogCma",
+      "gr"
     ]
   },
   {

@@ -12,7 +12,7 @@ A free, private, phone-friendly guide that helps people in India work out **whic
 | **Home** | Pick a journey: planning marriage, pregnancy, a child's health, or your own risks. Myth-buster cards. |
 | **Check** | Chat with "Gia", who asks about 14–20 short questions (41 in total, depending on your answers), including age, food & diet, and results of tests already done (NIPT, marker test, scan, CVS/amnio, HPLC, microarray, exome) and builds a plan: *Worth discussing → If indicated → Skip for now*, plus ready-made questions to ask your doctor and food tips linked to your answers, each with its source. |
 | **Couple** | Carrier check for two partners with a Punnett square, for recessive (HBB, SMN1, CFTR…) and X-linked (G6PD, DMD, F8/F9) genes. It explains chances and never labels a couple "compatible" or "incompatible". |
-| **Learn** | 26 tests explained (what they detect, what they can't tell you, sources), a short guide to polygenic risk scores, and 12 conditions relevant in India. |
+| **Learn** | 34 tests explained (genetic, cytogenetic and routine blood tests) (what they detect, what they can't tell you, sources), a short guide to polygenic risk scores, and 12 conditions relevant in India. |
 | **Privacy** | No sign-in, no DNA upload, no name or Aadhaar. Answers stay in the browser and are not saved. |
 
 It works offline after the first visit and can be installed to the home screen ("Add to Home Screen") like an app.
@@ -39,7 +39,7 @@ index.html            app shell
 css/app.css           styles (light + dark)
 js/app.js             screens and the recommendation engine (recommend())
 data/
-  tests.json          the 26 tests: purpose, who, can/cannot detect, India notes, sources
+  tests.json          the 34 tests: purpose, who, can/cannot detect, India notes, sources
   questions.json      Gia's questions, the section each belongs to, and when it is shown
   genes.json          genes for the Couple check (AR = recessive, XL = X-linked)
   conditions.json     conditions in the Learn → India tab

@@ -46,9 +46,7 @@ data/
   diet.json           food tips on the results screen, each linked to an answer and a source
   references.json     sources cited by tests
 manifest.json, sw.js  install-to-home-screen and offline support
-scripts/check-data.js checks the data files are consistent
-scripts/run-scenarios.js runs tests/scenarios.json: real cases with the plan they must produce
-                      (both run on every pull request)
+scripts/check-data.js checks the data files are consistent (also runs on every pull request)
 ```
 
 **Most content can be edited without touching code.** To fix a test description, add a source, reword a question or add a gene, edit the JSON file and open a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md).

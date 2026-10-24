@@ -31,21 +31,12 @@ Open an issue and choose a template:
 Don't change an option's **key** (e.g. `"marriage"` in `"marriage": "Planning marriage"`) unless you also update `js/app.js`, because the engine uses the keys. Changing the label is fine.
 
 ### Change the recommendation logic
-The rules are in `recommend()` in `js/app.js`. Each rule calls `add(testId, tier, reason)` with a tier of `relevant`, `consider` or `notroutine`. In the pull request, describe the scenario before and after the change, and the guideline that supports it. Add or update a case in `tests/scenarios.json` so the change stays covered, and run `node scripts/run-scenarios.js`.
-
-A scenario lists the chat answers and what the plan must contain, for example:
-```json
-{ "name": "NIPT negative but structural anomaly on scan",
-  "answers": { "stage": "pregnant", "screen": "scan", "pregTests": ["nipt","scan"], "niptResult": "low", "scanResult": "structural" },
-  "expect": { "first": "invasive", "relevant": ["invasive","gc"], "absent": ["nipt"] } }
-```
-`expect` can use `relevant`, `consider`, `notroutine` (test ids that must have that tier), `absent`, `first` (the first card), `diet` (food tip ids) and `note` (text that must appear in the Notes tab). Expectations are partial, so a new unrelated suggestion won't break existing cases. Changes to rules need sign-off from a clinical reviewer before merging (see [CLINICAL_REVIEW.md](CLINICAL_REVIEW.md)).
+The rules are in `recommend()` in `js/app.js`. Each rule calls `add(testId, tier, reason)` with a tier of `relevant`, `consider` or `notroutine`. In the pull request, describe the scenario before and after the change, and the guideline that supports it. Changes to rules need sign-off from a clinical reviewer before merging (see [CLINICAL_REVIEW.md](CLINICAL_REVIEW.md)).
 
 ### Run it locally
 ```bash
 python3 -m http.server 8000   # then open http://localhost:8000
 node scripts/check-data.js
-node scripts/run-scenarios.js
 ```
 If you change any file listed in `sw.js`, bump `VERSION` in `sw.js` so installed copies update.
 

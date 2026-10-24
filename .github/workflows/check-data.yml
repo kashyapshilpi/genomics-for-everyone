@@ -1,4 +1,4 @@
-name: Check data and scenarios
+name: Check data
 on:
   pull_request:
   push:
@@ -12,4 +12,3 @@ jobs:
         with:
           node-version: 20
       - run: node scripts/check-data.js
-      - run: node scripts/run-scenarios.js

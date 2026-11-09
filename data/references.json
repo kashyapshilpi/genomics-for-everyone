@@ -166,5 +166,41 @@
   "mohfwGdm": {
     "n": "MoHFW, Government of India: Diagnosis and management of gestational diabetes mellitus – technical and operational guidelines (2018)",
     "u": "https://nhm.gov.in/"
+  },
+  "fragxAcmg": {
+    "n": "ACMG technical standard: laboratory testing for fragile X, 2021 revision (Spector et al., Genet Med 2021)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Spector+2021+fragile+X+technical+standard+ACMG"
+  },
+  "moeschler": {
+    "n": "AAP clinical report: evaluation of the child with intellectual disability or global developmental delay (Moeschler & Shevell, Pediatrics 2014)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Moeschler+Shevell+2014+comprehensive+evaluation+intellectual+disability+global+developmental+delay"
+  },
+  "acogPoi": {
+    "n": "ACOG Committee Opinion 605: primary ovarian insufficiency in adolescents and young women (2014)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=ACOG+committee+opinion+605+primary+ovarian+insufficiency+adolescents"
+  },
+  "turner": {
+    "n": "Clinical practice guidelines for the care of girls and women with Turner syndrome (Gravholt et al., Eur J Endocrinol 2024)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Gravholt+2024+clinical+practice+guidelines+Turner+syndrome"
+  },
+  "krausz": {
+    "n": "EAA/EMQN best practice guidelines for molecular diagnosis of Y-chromosomal microdeletions (Krausz et al., Andrology 2014)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Krausz+2014+EAA+EMQN+Y+chromosomal+microdeletions+guidelines"
+  },
+  "asrmMale": {
+    "n": "AUA/ASRM guideline: diagnosis and treatment of infertility in men (Schlegel et al., Fertil Steril 2021)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Schlegel+2021+diagnosis+treatment+infertility+in+men+AUA+ASRM+guideline"
+  },
+  "cpicAllopurinol": {
+    "n": "CPIC guideline for HLA-B genotype and allopurinol dosing, 2015 update (Saito et al., Clin Pharmacol Ther 2016)",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/?term=Saito+2016+CPIC+HLA-B+allopurinol"
+  },
+  "pcpndt": {
+    "n": "The Pre-Conception and Pre-Natal Diagnostic Techniques (Prohibition of Sex Selection) Act, 1994 (India Code)",
+    "u": "https://www.indiacode.nic.in/simple-search?query=Pre-Conception+and+Pre-Natal+Diagnostic+Techniques"
+  },
+  "mtp": {
+    "n": "The Medical Termination of Pregnancy (Amendment) Act, 2021 (India Code)",
+    "u": "https://www.indiacode.nic.in/simple-search?query=Medical+Termination+of+Pregnancy"
   }
 }

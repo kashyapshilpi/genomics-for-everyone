@@ -32,6 +32,7 @@ const WHEN={
  isKid, isRepro,
  isAdult:a=>a.stage==="adult",
  isPregnant:a=>a.stage==="pregnant",
+ isPlanning:a=>["marriage","preconception"].includes(a.stage),
  hasFamilyHistory:a=>(a.fh||[]).length>0,
  knownFamilyVariant:a=>a.known,
  childHasSeizures:a=>(a.child||[]).includes("seizures"),
@@ -105,6 +106,26 @@ function recommend(a){
     }
     if(fh.has("xl")&&a.sex==="female"){add("carrier","relevant","Women with affected male relatives may carry an X-linked condition. Carrier testing works best once the family's variant is known.");add("gc","relevant","X-linked conditions need specialist counselling before pregnancy.");}
     if(a.prevAffected){add("gc","relevant","After an affected child or pregnancy, counselling before the next pregnancy helps plan testing in time.");add("familial","relevant","If the affected child had a genetic diagnosis, testing for that exact change comes first.",true);add("wes","consider","If the affected child has no diagnosis, exome sequencing of the child (often with both parents) may be considered.");}
+    const fert=new Set(a.fertility||[]);
+    if(fert.has("lowCount")){
+      urgent.add("karyo");
+      add("karyo","relevant","For no sperm or a very low sperm count, a chromosome test (karyotype) is a standard first genetic test. It finds conditions such as Klinefelter syndrome.",true);
+      add("ymicro","relevant","A Y chromosome microdeletion test is advised for no sperm or a very low count. It shows whether sperm retrieval is likely to work, and sons conceived by IVF or ICSI would inherit any deletion.");
+      add("gc","relevant","A counsellor can explain what the results mean for IVF or ICSI and for future children.");
+    }
+    if(fert.has("noVas")){
+      urgent.add("cftr");
+      add("cftr","relevant","Missing sperm tubes are usually caused by changes in the cystic fibrosis (CFTR) gene. The female partner should be tested too before IVF or ICSI.",true);
+      add("gc","relevant","If both partners carry a CFTR change, a child could have cystic fibrosis. Counselling before IVF or ICSI helps plan for this.");
+    }
+    if(fert.has("noPeriods"))add("karyo","relevant","Periods that never start can be due to Turner syndrome or other chromosome differences. A karyotype is a standard test alongside hormone tests.",true);
+    if(fert.has("earlyMeno")){
+      add("fragx","relevant","Periods stopping before 40 has a known genetic link: the Fragile X premutation. The result also matters for sisters and for future children.",true);
+      add("karyo","relevant","A karyotype is a standard test when periods stop before 40.");
+      add("gc","relevant","A counsellor can explain what a Fragile X premutation would mean for you and your relatives.");
+    }
+    if(fert.size)cons.push("Most infertility is not genetic. A fertility specialist checks hormones, semen and the tubes first; genetic tests follow specific findings like the ones above.");
+    if(fh.has("dd")&&a.sex!=="male")add("fragx","consider","Women with relatives who have intellectual disability or autism can be checked for the Fragile X premutation, which can expand when passed to children.");
     if(fh.has("rpl"))add("karyo","consider","For repeated miscarriages, both partners' chromosomes may be checked, alongside non-genetic causes.");
     if(s!=="pregnant"){add("wes","notroutine","Exome is a diagnostic test for people with signs of a genetic condition, not pre-marital screening.");add("wgs","notroutine","Not a screening test for healthy couples.");}
   }
@@ -116,7 +137,8 @@ function recommend(a){
     else if(!a.niptResult)add("nipt","consider","A more sensitive screening option for trisomies 21, 18 and 13. A high-chance result needs a diagnostic test.");
     if(a.known||a.prevAffected)add("invasive","relevant","A family condition is known, so diagnostic testing for it can be planned with a fetal medicine specialist.");
     else add("invasive","consider","Offered after a high-chance screen, a scan finding, or a known family condition.");
-    if(a.weeks==="gt20")cons.push("You're past 20 weeks. Some options are time-limited, so please speak to your obstetrician soon.");
+    if(a.weeks==="gt20")cons.push("You're past 20 weeks. Some test results take one to three weeks, and under India's MTP Act some decisions have legal time limits (generally 24 weeks; later only through a state medical board for major conditions in the baby). Please speak to your obstetrician soon.");
+    cons.push("No test in this plan will tell you the baby's sex. Finding out or telling the baby's sex before birth is illegal in India under the PCPNDT Act.");
     if(a.weeks==="w10")cons.push("You're in the window when CVS (about 10–13 weeks) and NIPT are both possible.");
     add("wgs","notroutine","Not part of routine pregnancy care.");
   }
@@ -137,6 +159,7 @@ function recommend(a){
       add("wes","relevant","For unexplained developmental delay, ID or multiple anomalies, ACMG (2021) supports exome or genome sequencing as a first- or second-tier test.",true);
       add("cma",ct.has("cma")?"notroutine":"relevant",ct.has("cma")?"Microarray has already been done.":"Still widely used, especially where sequencing isn't accessible, or alongside it.");
       add("wgs","consider","In selected cases, or after a negative exome.");
+      if(devIssue||cc.has("autism"))add("fragx",ct.has("fragx")?"notroutine":"relevant",ct.has("fragx")?"Fragile X has already been tested.":"Fragile X is the most common inherited cause of intellectual disability and autism, especially in boys. It needs its own test because microarray and most exomes miss it.");
     }
     if(cc.has("speech")&&!devIssue)cons.push("Isolated speech delay is common and often not genetic. A hearing test and speech assessment come first.");
     if(ct.has("cma")&&(devIssue||cc.has("anomalies")))add("wes","relevant","Microarray is already done, so exome is the usual next step.");
@@ -148,21 +171,23 @@ function recommend(a){
     if(cc.has("infections"))add("panel","consider","Immunodeficiency panel after immunology blood tests.");
     if(cc.has("metabolic"))add("panel","consider",ct.has("meta")?"Metabolic tests are done; genetic testing can confirm the diagnosis.":"Biochemical blood and urine tests come first; genetic testing confirms.");
     if(cc.has("cardiac"))add("fh","consider","A paediatric cardiologist assesses first (ECG, echo); genetic and family testing may follow.");
-    if(cc.has("growth"))add("cma","consider","Growth differences with other features may lead to microarray or a specific syndrome test.");
+    if(cc.has("growth")||cc.has("short"))add("cma","consider","Growth differences with other features may lead to microarray or a specific syndrome test.");
+    if(cc.has("short")&&a.sex==="female")add("karyo","relevant","In a girl who is short for her age, a karyotype checks for Turner syndrome, a common cause that can be treated with growth hormone.");
     if(cc.size)add("gc","relevant","A clinical geneticist can pick the most useful first test for your child.");
     
     add("hcp","notroutine","Adult-onset cancer gene testing is not usually done in children.");
   }
   if(s==="adult"){
-    const strongCa=a.cancerYoung||ctype.has("ovarian")||ctype.has("pancreas");
+    const strongCa=a.cancerYoung||["ovarian","pancreas","maleBreast","prostateMet"].some(x=>ctype.has(x));
     if(a.cancer)add("hcp","relevant","Your own cancer history"+(strongCa?", especially at a younger age or of these types,":"")+" can meet criteria for germline testing.");
     else if(fh.has("cancer"))add("hcp","consider",strongCa?"Relatives diagnosed young, or with ovarian or pancreatic cancer, often meet testing criteria. Usually the affected relative is tested first.":"Family history may meet testing criteria. Usually the affected relative is tested first.");
+    if(ctype.has("maleBreast")||ctype.has("prostateMet"))cons.push("Breast cancer in a man, or prostate cancer that has spread, meets testing criteria on its own, often for BRCA2.");
     if(ctype.has("colon"))cons.push("Colon or uterine cancer in the family can point to Lynch syndrome, which changes how early colonoscopy should start.");
     if(a.ldl==="veryhigh")add("fh","relevant","An LDL of 190 mg/dL or above in an adult is a common reason to suspect familial hypercholesterolaemia. Genetic testing helps find affected relatives.");
     else if(fh.has("heart")||fh.has("highChol"))add("fh","consider","Very high LDL or early heart attacks can point to familial hypercholesterolaemia. A lipid profile comes first.");
     if(a.ldl==="unknown"&&(fh.has("heart")||fh.has("highChol")))cons.push("Get a lipid profile; it is the first test for familial hypercholesterolaemia.");
     if(fh.has("suddenDeath"))add("fh","consider","A young unexplained sudden death in the family is a reason for cardiology review of close relatives.");
-    if(meds.size){const d={clopidogrel:"CYP2C19 · clopidogrel",carbamazepine:"HLA-B*15:02 · carbamazepine",abacavir:"HLA-B*57:01 · abacavir",thiopurine:"TPMT/NUDT15 · azathioprine",fluoro:"DPYD · 5-FU/capecitabine",warfarin:"CYP2C9+VKORC1 · warfarin",antidep:"CYP2D6/CYP2C19 · some antidepressants"};
+    if(meds.size){const d={clopidogrel:"CYP2C19 · clopidogrel",carbamazepine:"HLA-B*15:02 · carbamazepine",abacavir:"HLA-B*57:01 · abacavir",thiopurine:"TPMT/NUDT15 · azathioprine",fluoro:"DPYD · 5-FU/capecitabine",warfarin:"CYP2C9+VKORC1 · warfarin",allopurinol:"HLA-B*58:01 · allopurinol",antidep:"CYP2D6/CYP2C19 · some antidepressants"};
       add("pgx",[...meds].some(x=>["abacavir","carbamazepine"].includes(x))?"relevant":"consider","Guidance exists for "+[...meds].map(x=>d[x]).join("; ")+". Ask your doctor before starting. Never change a medicine yourself.");}
     if(fh.has("xl")&&a.sex==="female")add("carrier","consider","Women with affected male relatives may carry an X-linked condition; this matters for future pregnancies.");
     
@@ -230,7 +255,7 @@ function recommend(a){
     if(cc.has("weakness")){urgent.add("ck");add("ck","relevant","CK is a quick blood test: very high levels point to a muscular dystrophy such as Duchenne, while it is normal in SMA.",true);}
     if(cc.has("metabolic"))add("metab",ct.has("meta")?"consider":"relevant",ct.has("meta")?"Metabolic tests were done. Ask whether they were taken while your child was unwell, which matters for some disorders.":"Biochemical tests (ammonia, lactate, amino acids, urine organic acids) are the first step for a suspected metabolic disorder.",true);
     else if(cc.has("regression")||(cc.has("seizures")&&["lt1"].includes(a.onset)))add("metab","consider","Some metabolic disorders cause regression or seizures in infancy; a few have specific treatments, so they are worth ruling out.");
-    if(cc.has("growth"))add("tsh","consider","Thyroid problems can slow growth. TSH is a simple first test.");
+    if(cc.has("growth")||cc.has("short"))add("tsh","consider","Thyroid problems can slow growth. TSH is a simple first test.");
     if(cc.has("dd"))add("tsh","consider","If newborn thyroid screening wasn't done, a TSH test is a simple check.");
   }
   if(s==="pregnant"&&out.get("invasive")?.tier==="relevant")add("rapid","consider","A rapid test (QF-PCR or FISH) on the CVS or amniotic fluid sample can give an answer for the common trisomies in a day or two while microarray runs.");
@@ -284,7 +309,7 @@ const secC=q=>"c-"+SEC[q.sec][0];
 
 /* ===================== ONBOARDING ===================== */
 const ONB=[
- ["Which genetic test do I actually need?","Thalassemia, NIPT, exome, PRS… there are many tests. Gia helps you find the few worth discussing with your doctor.",`<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="rgba(255,255,255,.12)"/><circle cx="100" cy="100" r="55" fill="rgba(255,255,255,.18)"/>${[0,1,2,3,4,5].map(i=>`<circle cx="${100+70*Math.cos(i*1.047)}" cy="${100+70*Math.sin(i*1.047)}" r="10" fill="#fff" opacity="${.5+i*.08}"/>`).join("")}<path d="M80 70c0 20 40 20 40 40s-40 0-40 20M120 70c0 20-40 20-40 40" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/></svg>`],
+ ["Which genetic test do I actually need?","Thalassemia, NIPT, microarray, exome… there are many tests. Gia helps you find the few worth discussing with your doctor.",`<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="rgba(255,255,255,.12)"/><circle cx="100" cy="100" r="55" fill="rgba(255,255,255,.18)"/>${[0,1,2,3,4,5].map(i=>`<circle cx="${100+70*Math.cos(i*1.047)}" cy="${100+70*Math.sin(i*1.047)}" r="10" fill="#fff" opacity="${.5+i*.08}"/>`).join("")}<path d="M80 70c0 20 40 20 40 40s-40 0-40 20M120 70c0 20-40 20-40 40" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/></svg>`],
  ["Answer about 20 quick questions","Tap answers in a chat. Every question can be skipped, and you can change any answer later.",`<svg viewBox="0 0 200 200"><rect x="30" y="40" width="110" height="38" rx="19" fill="rgba(255,255,255,.9)"/><rect x="60" y="92" width="110" height="38" rx="19" fill="#fff" opacity=".35"/><rect x="30" y="144" width="80" height="38" rx="19" fill="rgba(255,255,255,.9)"/><circle cx="50" cy="59" r="6" fill="#1f4e79"/><circle cx="66" cy="59" r="6" fill="#1f4e79" opacity=".6"/><circle cx="82" cy="59" r="6" fill="#1f4e79" opacity=".3"/></svg>`],
  ["Private by design","No sign-in, no DNA upload, no name or Aadhaar. Your answers stay on your phone and disappear when you close the app.",`<svg viewBox="0 0 200 200"><path d="M100 30l55 20v40c0 35-24 60-55 70-31-10-55-35-55-70V50z" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="6"/><path d="M75 100l18 18 34-36" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`]
 ];
@@ -372,7 +397,7 @@ function sResults(){
     ${R.length===0?`<p class="note">From what you shared, there's no clear reason for genetic testing right now. That's a useful answer too.</p>`:""}`;
   if(resSeg==="ask"){const qs=[...R,...C].map(r=>T[r.id].ask).filter(Boolean);body=`<p class="small">Take these to your appointment. Screenshot or copy them.</p><div class="qlist">${qs.map(q=>`<div class="qitem"><span>${esc(q)}</span></div>`).join("")}</div>`;}
   if(resSeg==="food")body=`<p class="small">Food tips linked to your answers. Each one shows its source.</p><div class="diet">${dietTips(a).map(t=>`<div class="card"><h3>${esc(t.title)}</h3><p>${esc(t.text)}</p>${refsHtml(t.refs)}</div>`).join("")}</div>`;
-  if(resSeg==="why")body=`<div class="cons">${cons.map(c=>`<div>${esc(c)}</div>`).join("")||'<p class="small">Nothing extra to note.</p>'}</div><p class="note">This is not a diagnosis and does not calculate your risk. Rules last reviewed 19 Oct 2026, not yet clinically validated.</p>`;
+  if(resSeg==="why")body=`<div class="cons">${cons.map(c=>`<div>${esc(c)}</div>`).join("")||'<p class="small">Nothing extra to note.</p>'}</div><p class="note">This is not a diagnosis and does not calculate your risk. Rules last reviewed 9 Nov 2026, not yet clinically validated.</p>`;
   return `<div class="rhead g"><p class="goal">Goal: ${esc(goal||"Understand my options")}</p><h2>Your genetic test plan</h2>
     <div class="rings">${ring(R.length,tot,"#5ff0d8","Worth discussing")}${ring(C.length,tot,"#ffc46b","If indicated")}${ring(N.length,tot,"#ff9bbd","Skip for now")}</div></div>
    <div class="rbody g"><div class="seg"><button data-rseg="plan" aria-pressed="${resSeg==="plan"}">Plan</button><button data-rseg="ask" aria-pressed="${resSeg==="ask"}">Ask doctor</button><button data-rseg="food" aria-pressed="${resSeg==="food"}">Food</button><button data-rseg="why" aria-pressed="${resSeg==="why"}">Notes</button></div>${body}
@@ -459,6 +484,7 @@ function openSheet(id,rec){
     <dl class="kv warn"><dt>Cannot tell you</dt><dd>${esc(t.limits)}</dd></dl>
     ${t.ask?`<dl class="kv"><dt>Ask your doctor</dt><dd>“${esc(t.ask)}”</dd></dl>`:""}
     <dl class="kv"><dt>In India</dt><dd>${esc(t.india)}</dd></dl>
+    ${t.law?`<dl class="kv warn"><dt>The law in India</dt><dd>${esc(t.law)}</dd></dl>`:""}
     <dl class="kv"><dt>Sources</dt><dd>${refsHtml(t.refs)}</dd></dl>
    </div></div>`;
 }

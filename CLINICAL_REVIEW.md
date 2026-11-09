@@ -15,7 +15,7 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | Expanded carrier screening (`ecs`) | Carrier | acmgCS | Not reviewed | | |
 | Partner testing (`partner`) | Carrier | acmgCS, gr | Not reviewed | | |
 | Known family variant test (`familial`) | Targeted | gr, clinvar | Not reviewed | | |
-| Karyotype (`karyo`) | Targeted | gr | Not reviewed | | |
+| Karyotype (`karyo`) | Targeted | gr, asrmMale, turner | Not reviewed | | |
 | Ultrasound + maternal blood screening (`prenatal`) | Pregnancy | acog | Not reviewed | | |
 | NIPT (`nipt`) | Pregnancy | acog | Not reviewed | | |
 | CVS or amniocentesis (`invasive`) | Pregnancy | acog, gr | Not reviewed | | |
@@ -26,7 +26,10 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | Whole-genome sequencing (`wgs`) | Sequencing | acmgES | Not reviewed | | |
 | Hereditary cancer panel (`hcp`) | Adult | nccn, gr | Not reviewed | | |
 | Inherited heart condition testing (`fh`) | Adult | gr, clingen | Not reviewed | | |
-| Pharmacogenomic test (`pgx`) | Medicines | cpic, pharmgkb | Not reviewed | | |
+| Pharmacogenomic test (`pgx`) | Medicines | cpic, pharmgkb, cpicAllopurinol | Not reviewed | | |
+| Fragile X test (`fragx`) | Child | fragxAcmg, moeschler, acogPoi | Not reviewed | | |
+| Y chromosome microdeletion test (`ymicro`) | Targeted | krausz, asrmMale | Not reviewed | | |
+| CFTR gene test (`cftr`) | Targeted | asrmMale, acmgCS | Not reviewed | | |
 | Celiac disease blood test (`celiac`) | Food | acgCeliac, celiacIndia | Not reviewed | | |
 | Milk (lactose) intolerance check (`lactose`) | Food | lactase | Not reviewed | | |
 | G6PD test (`g6pd`) | Food | cpicG6pd, gr | Not reviewed | | |
@@ -64,6 +67,10 @@ Status values: `Not reviewed` · `Reviewed – OK` · `Reviewed – changes need
 | Results already in hand, child: weakness → MLPA (SMN1, DMD) first; microarray VUS/abnormal → counselling, parents; exome negative → genome, then RNA in specialist centres; exome VUS/positive | Not reviewed | | |
 | MLPA for DMD carrier testing (female relatives) and SMA carrier testing (related partners, unexplained infant death) | Not reviewed | | |
 | Routine blood tests: glucose for adults 30+ and every pregnancy (GDM), HbA1c caveat with Hb variants, fasting insulin "not routine", lipid profile, ferritin/B12 for anaemia and low MCV/borderline HbA2, ferritin in thalassemia major, CK first for weakness, metabolic screen, TSH for growth/delay, rapid QF-PCR/FISH alongside CVS/amnio | Not reviewed | | |
+| Fertility: no or very low sperm → karyotype + Y microdeletion; missing vas deferens → CFTR (both partners); periods never started → karyotype; periods stopped before 40 → Fragile X premutation + karyotype | Not reviewed | | |
+| Fragile X: child with delay, ID or autism → FMR1 test alongside microarray/exome; woman with relatives with ID → premutation test | Not reviewed | | |
+| Short girl → karyotype (Turner syndrome); male breast cancer or metastatic prostate cancer → germline testing; allopurinol → HLA-B*58:01 | Not reviewed | | |
+| India law: PCPNDT note on all prenatal tests; MTP Act time limits after 20 weeks | Not reviewed | | |
 | Food & diet: wheat → celiac, milk → lactose (and cow's milk allergy in under-5s), fava beans → G6PD, anaemia not responding to iron → HPLC + celiac, DNA diet tests | Not reviewed | | |
 
 ## Couple check (`data/genes.json` and Punnett-square logic)

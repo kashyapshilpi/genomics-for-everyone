@@ -250,6 +250,22 @@
       "type": "yn"
     },
     {
+      "id": "fertility",
+      "sec": "repro",
+      "when": "isPlanning",
+      "text": "Any fertility concerns, in you or your partner?",
+      "sub": "Pick all that apply.",
+      "type": "multi",
+      "none": "None / not sure",
+      "opts": {
+        "lowCount": "No sperm or a very low sperm count",
+        "noVas": "Told the sperm tubes (vas deferens) are missing",
+        "noPeriods": "Periods never started by age 15",
+        "earlyMeno": "Periods stopped before age 40",
+        "trying": "Trying for over a year, no cause found yet"
+      }
+    },
+    {
       "id": "weeks",
       "sec": "preg",
       "when": "isPregnant",
@@ -394,7 +410,8 @@
         "weakness": "Muscle weakness",
         "infections": "Repeated serious infections",
         "metabolic": "Possible metabolic disorder",
-        "growth": "Unusual growth",
+        "short": "Short for age",
+        "growth": "Other unusual growth",
         "cardiac": "Heart condition"
       }
     },
@@ -438,7 +455,8 @@
         "meta": "Metabolic tests",
         "cma": "Microarray",
         "panel": "Gene panel",
-        "exome": "Exome"
+        "exome": "Exome",
+        "fragx": "Fragile X test"
       }
     },
     {
@@ -483,10 +501,12 @@
       "none": "Not sure",
       "opts": {
         "breast": "Breast",
+        "maleBreast": "Breast cancer in a man",
         "ovarian": "Ovarian",
         "colon": "Colon or uterine",
         "pancreas": "Pancreatic",
         "prostate": "Prostate",
+        "prostateMet": "Prostate cancer that has spread",
         "other": "Other"
       }
     },
@@ -523,7 +543,8 @@
         "thiopurine": "Azathioprine",
         "fluoro": "5-FU / capecitabine",
         "warfarin": "Warfarin",
-        "antidep": "Antidepressants / opioids"
+        "antidep": "Antidepressants / opioids",
+        "allopurinol": "Allopurinol (for gout or high uric acid)"
       }
     },
     {

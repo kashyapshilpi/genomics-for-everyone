@@ -96,14 +96,16 @@
     "cat": "Targeted",
     "type": "Diagnostic",
     "purpose": "Finds large chromosome changes, including balanced rearrangements.",
-    "who": "Couples with recurrent pregnancy loss; suspected chromosome conditions.",
+    "who": "Couples with recurrent pregnancy loss; men with no sperm or a very low count; girls who are short or whose periods have not started; women whose periods stop before 40; suspected chromosome conditions.",
     "detects": "Extra or missing chromosomes, translocations, large deletions.",
     "limits": "Low resolution; misses small and single-gene changes.",
     "gc": "If abnormal.",
     "india": "Widely available.",
     "ask": "Should both of us have a karyotype because of the repeated losses?",
     "refs": [
-      "gr"
+      "gr",
+      "asrmMale",
+      "turner"
     ]
   },
   {
@@ -120,8 +122,10 @@
     "india": "Availability varies between public and private settings.",
     "ask": "Which screening tests are due now, and what happens if a result shows a high chance?",
     "refs": [
-      "acog"
-    ]
+      "acog",
+      "pcpndt"
+    ],
+    "law": "Finding out or telling the baby's sex before birth is illegal in India (PCPNDT Act). This test will not be used to tell you the baby's sex."
   },
   {
     "id": "nipt",
@@ -137,8 +141,10 @@
     "india": "Mostly private labs, paid separately.",
     "ask": "Is NIPT useful in my situation, and what would a high-chance result mean next?",
     "refs": [
-      "acog"
-    ]
+      "acog",
+      "pcpndt"
+    ],
+    "law": "Finding out or telling the baby's sex before birth is illegal in India (PCPNDT Act). This test will not be used to tell you the baby's sex."
   },
   {
     "id": "invasive",
@@ -155,8 +161,10 @@
     "ask": "Is diagnostic testing advised, which test fits my weeks, and which lab tests would be run on the sample?",
     "refs": [
       "acog",
-      "gr"
-    ]
+      "gr",
+      "pcpndt"
+    ],
+    "law": "Finding out or telling the baby's sex before birth is illegal in India (PCPNDT Act). This test will not be used to tell you the baby's sex."
   },
   {
     "id": "nbs",
@@ -300,7 +308,8 @@
     "ask": "Is there a gene test recommended before I start this medicine?",
     "refs": [
       "cpic",
-      "pharmgkb"
+      "pharmgkb",
+      "cpicAllopurinol"
     ]
   },
   {
@@ -408,8 +417,10 @@
     "ask": "With a normal microarray, would prenatal exome help explain the scan findings, and how long would results take?",
     "refs": [
       "ispdEs",
-      "acogCma"
-    ]
+      "acogCma",
+      "pcpndt"
+    ],
+    "law": "Finding out or telling the baby's sex before birth is illegal in India (PCPNDT Act). This test will not be used to tell you the baby's sex."
   },
   {
     "id": "rnaseq",
@@ -583,7 +594,64 @@
     "ask": "Will the lab run a rapid test first, and when will the full microarray result come?",
     "refs": [
       "acogCma",
-      "gr"
+      "gr",
+      "pcpndt"
+    ],
+    "law": "Finding out or telling the baby's sex before birth is illegal in India (PCPNDT Act). This test will not be used to tell you the baby's sex."
+  },
+  {
+    "id": "fragx",
+    "name": "Fragile X test",
+    "full": "FMR1 repeat test (repeat-primed PCR, sometimes with Southern blot)",
+    "cat": "Child",
+    "type": "Diagnostic / carrier",
+    "purpose": "Checks the FMR1 gene for the repeat expansion that causes Fragile X syndrome, the most common inherited cause of intellectual disability.",
+    "who": "Children with developmental delay, intellectual disability or autism, especially boys; women whose periods stop before 40; women with relatives who have Fragile X or unexplained intellectual disability.",
+    "detects": "Full mutation (over 200 repeats), which causes Fragile X syndrome. Premutation (55 to 200 repeats), which is linked to early menopause, a later tremor and balance condition, and a chance of Fragile X in children.",
+    "limits": "Microarray and most exome tests miss this repeat, so it needs its own test. Rarely, Fragile X is caused by other FMR1 changes that this test does not see.",
+    "gc": "Yes. A result also matters for the mother, sisters and other relatives.",
+    "india": "Offered by most genetics labs. Ask that the report gives the repeat size.",
+    "ask": "Has Fragile X been checked, or does the planned test cover the FMR1 repeat?",
+    "refs": [
+      "fragxAcmg",
+      "moeschler",
+      "acogPoi"
+    ]
+  },
+  {
+    "id": "ymicro",
+    "name": "Y chromosome microdeletion test",
+    "full": "PCR test for AZFa, AZFb and AZFc deletions on the Y chromosome",
+    "cat": "Targeted",
+    "type": "Diagnostic",
+    "purpose": "Finds small missing pieces of the Y chromosome that stop sperm from being made.",
+    "who": "Men with no sperm or a very low sperm count (usually under 5 million per mL).",
+    "detects": "Deletions in the AZF regions of the Y chromosome.",
+    "limits": "Does not find other causes of low sperm count. A normal result does not mean sperm retrieval will work.",
+    "gc": "Yes. Sons conceived by IVF or ICSI would inherit the deletion.",
+    "india": "Available in most genetics and fertility labs.",
+    "ask": "Should I have a Y microdeletion test and a karyotype before IVF or ICSI?",
+    "refs": [
+      "krausz",
+      "asrmMale"
+    ]
+  },
+  {
+    "id": "cftr",
+    "name": "CFTR gene test",
+    "full": "CFTR gene variant testing (cystic fibrosis gene)",
+    "cat": "Targeted",
+    "type": "Diagnostic / carrier",
+    "purpose": "Checks the cystic fibrosis gene, whose changes are the usual cause of missing sperm tubes (vas deferens).",
+    "who": "Men told their vas deferens is missing on one or both sides, and their female partner before IVF or ICSI.",
+    "detects": "CFTR variants, including the milder ones that cause missing sperm tubes.",
+    "limits": "Common variants differ between populations; Western panels can miss variants seen in Indian families. Full gene sequencing is better.",
+    "gc": "Yes, especially if both partners carry a CFTR change.",
+    "india": "Available in genetics labs; ask for full gene sequencing rather than a small panel.",
+    "ask": "Should both of us have CFTR testing before IVF or ICSI?",
+    "refs": [
+      "asrmMale",
+      "acmgCS"
     ]
   },
   {
